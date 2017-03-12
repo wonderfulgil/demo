@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>js基本焦点轮播图</title>
+    <style type="text/css">
+        a{
+			text-decoration:none;
+		}
+		ul,li,body,div{
+			padding:0;
+			margin:0;
+		}
+		ul,li{
+			list-style:none;
+		}
+		.container{
+			width:600px;
+			height:400px;
+			overflow:hidden;
+			position:relative;
+		}
+		.container .list{
+			position:absolute;
+		}
+		.container .list img{
+			width:600px;
+			height:400px;
+			float:left;
+		}
+		.container:hover .prev,.container:hover .next{
+			display:block;
+		}
+		.prev,.next{
+			width:40px;
+			height:40px;
+			line-height:40px;
+			text-align:center;
+			background:#000;
+			color:#fff;
+			font-size: 36px;
+			font-weight:bolder;
+			opacity:0.3;
+			filter:alpha(opacity=30);
+			position:absolute;
+			top:50%;
+			display:none;
+		}
+		.prev:hover,.next:hover {
+			opacity:0.7;
+			filter:alpha(opacity=70);
+			position:absolute;
+			top:50%;
+		}
+		.next{
+			right:10px;
+		}
+		.prev{
+			left:10px;
+		}
+		.lunbo_button{
+			position:absolute;
+			bottom:20px;
+			left:33%;
+		}
+		.lunbo_button li{
+			float:left;
+			width:15px;
+			height:15px;
+			background:#000;
+			margin-right:10px;
+			o-border-radius:50%;
+			moz-border-radius:50%;
+			webkit-border-radius:50%;
+			border-radius:50%;
+			cursor: pointer; 
+		}
+		.lunbo_button li.on{
+			background:#ed686d;
+		}
+    </style>
+</head>
+<body>
+<div  class="container" id="container">
+    <div class="list" id="list">
+        <img src="img/1.jpg"/>
+        <img src="img/2.jpg"/>
+        <img src="img/3.jpg"/>
+        <img src="img/4.jpg"/>
+        <img src="img/5.jpg"/>
+    </div>
+	<a href="javascript:;" class="prev" id="prev">&lt;</a>
+	<a href="javascript:;" class="next" id="next">&gt;</a>
+</div>
+<script type="text/javascript">
+//效果：左右图片切换，按钮高亮，点击按钮切换
+    window.onload = function () {
+		function $(id){
+			return typeof id==='string'?document.getElementById(id):id;
+		}
+        var container =$('container');
+        var list = $('list');
+		var listimg = list.getElementsByTagName('img');
+		var listimgwidth = listimg[0].offsetWidth;//获取轮播图片的宽度
+		debugger;
+		var slideNum = listimg.length;  //获取初始图片个数
+        var prev = $('prev');
+        var next = $('next');			
+		var current = 1;  //当前图片指针（从1开始）  			
+		
+		list.style.left=0;
+		
+
+		//js动态添加按钮圆点
+		var dot=document.createElement("ul");
+			dot.setAttribute("id","lunbo_button");
+			dot.setAttribute("class","lunbo_button");
+		for(i=0;i<slideNum;i++){
+			var dotli=document.createElement("li");
+			//dotspan.innerText=i+1;//带数字的按钮
+			dot.appendChild(dotli);
+		} 
+		container.appendChild(dot);
+
+		
+	
+		//图片高亮函数
+		//小圆点高亮函数,需要注意的是我们需要先取消所有按钮的高亮，再让当前图片序号对应的小圆点高亮
+		var buttons= $('lunbo_button').getElementsByTagName('li');	
+			buttons[0].className = 'on';
+		function showButton() {
+			for (var i = 0; i < slideNum ; i++) {
+                    buttons[i].className = '';
+            }//先取消所有按钮的高亮
+			buttons[current-1].className = 'on';
+		}
+		
+		//思路：向左，向右切换，每次的差值是一个图片的宽度，传参数为正负一个图片的宽度
+		prev.onclick=function(){
+			if(current==1){//重要重要！！！！！判断语句里的等于要写成==
+				current=slideNum;
+			}
+			else{
+				current-=1;
+			}
+			showButton();
+			switchpic(+parseInt(listimgwidth));
+		}
+		
+		
+		//思路：向左，向右切换，每次的差值是一个图片的宽度，传参数为正负一个图片的宽度
+		next.onclick=function(){
+			if(current==slideNum){
+				current=1;
+			}
+			else{
+				current+=1;
+			}//i++;i = i > 2 ? 0 : i ;	
+			showButton();
+			switchpic(-parseInt(listimgwidth));
+		}
+		
+		
+		//切换图片函数
+		function switchpic(offset){	
+			var newleft=parseInt(list.style.left)+offset;																	
+				list.style.left=newleft+"px";
+			if(newleft>0){
+				list.style.left=-listimgwidth*(slideNum-1)+"px";
+			}
+			else if(newleft<-listimgwidth*(slideNum-1)){
+				list.style.left=0;
+			}
+		}
+		
+		
+		
+		//按钮切换代码		
+			for(i=0;i<slideNum;i++){
+				buttons[i].index = i;	
+				buttons[i].onclick=function(){
+					if(this.className == 'on'){//按下的按钮高亮，代码不继续运行
+						return;
+					}
+					var j = this.index;
+					switchpic(-(j+1-current)*listimgwidth);
+					current=j+1;
+					showButton();//图片切换之后调用小圆点高亮函数
+				}
+			};
+		
+			
+		//自动循环播放代码
+		timer=0;
+		function autoplay(){
+			clearInterval(timer);//开定时器前先清除定时器
+			timer=setInterval(function(){
+				next.onclick();
+			},3000)
+		
+		}
+		function stopplay(){
+			clearInterval(timer);
+		}
+		autoplay();
+		container.onmouseover=stopplay;
+		container.onmouseout=autoplay;
+    }
+</script>
+</body>
+</html>
+
+
+
+	
+
+
+
+
+

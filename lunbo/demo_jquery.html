@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jquery基本焦点轮播图</title>
+    <style type="text/css">
+        a{
+			text-decoration:none;
+		}
+		body,div，ul,li{
+			padding:0;
+			margin:0;
+		}
+		ul,li{
+			list-style:none;
+		}
+		.container{
+			width:600px;
+			height:400px;
+			overflow:hidden;
+			position:relative;
+		}
+		.container .list{
+			position:absolute;
+		}
+		.container .list img{
+			width:600px;
+			height:400px;
+			float:left;
+		}
+		.container:hover .prev,.container:hover .next{
+			display:block;
+		}
+		.prev,.next{
+			width:40px;
+			height:40px;
+			line-height:40px;
+			text-align:center;
+			background:#000;
+			color:#fff;
+			font-size: 36px;
+			font-weight:bolder;
+			opacity:0.3;
+			filter:alpha(opacity=30);
+			position:absolute;
+			top:50%;
+			display:none;
+		}
+		.prev:hover,.next:hover {
+			opacity:0.7;
+			filter:alpha(opacity=70);
+			position:absolute;
+			top:50%;
+		}
+		.next{
+			right:10px;
+		}
+		.prev{
+			left:10px;
+		}
+		.lunbo_button{
+			position:absolute;
+			bottom:20px;
+			left:20%;
+		}
+		.lunbo_button li{
+			float:left;
+			width:15px;
+			height:15px;
+			background:#000;
+			margin-right:10px;
+			o-border-radius:50%;
+			moz-border-radius:50%;
+			webkit-border-radius:50%;
+			border-radius:50%;
+			cursor: pointer;
+		}
+		.lunbo_button li.on{
+			background:#ed686d;
+		}
+    </style>
+	
+</head>
+<body>
+<div  class="container">
+    <div class="list">
+        <img src="img/1.jpg"/>
+        <img src="img/2.jpg"/>
+        <img src="img/3.jpg"/>
+        <img src="img/4.jpg"/>
+        <img src="img/5.jpg"/>
+    </div>
+	<a href="javascript:;" class="prev">&lt;</a>
+	<a href="javascript:;" class="next">&gt;</a>
+</div>
+<script type="text/javascript" src="js/jquery.1.10.2.js"> </script>
+<script type="text/javascript">
+	//效果：左右图片切换，按钮高亮，点击按钮切换
+	 $(document).ready(function(){ 
+            var container =$(".container");
+            var list = $(".list");
+			var listimg = $(".list").find("img");  //获取轮播图片
+			var listimgwidth = listimg.eq(0).width();//获取轮播图片的宽度
+			var slideNum = listimg.length; 
+            var prev = $(".prev");
+            var next = $(".next");			
+			var current = 1; 			
+						
+			list.css("left",0);//设置left值
+								
+			//jquery动态添加按钮圆点
+			var ulstart = '<ul class="lunbo_button">',
+				ulcontent = '',
+				ulend = '</ul>';	
+		
+			for(i=0;i<slideNum;i++){
+				ulcontent += '<li>'+ '</li>';
+				//ulcontent += '<li>' + (i+1) +  '</li>';//带数字的按钮
+			} 
+			container.append(ulstart+ulcontent+ulend);
+	
+				
+			//图片高亮函数
+			var  buttons= $(".lunbo_button").find("li");	
+			buttons.eq(0).attr("class", "on");
+			
+			function showButton() {
+				buttons.eq(current-1).addClass("on")
+								  .siblings().removeClass("on");
+																																		
+			}
+			
+						
+			//思路：向左，向右切换，每次的差值是一个图片的宽度，传参数为正负一个图片的宽度
+			prev.on("click", function() {
+				if(current==1){
+					current=slideNum;
+				}
+				else{
+					current-=1;
+				}
+				showButton();
+				switchpic(+parseInt(listimgwidth));
+			});
+			
+			
+			//思路：向左，向右切换，每次的差值是一个图片的宽度，传参数为正负一个图片的宽度
+			next.on("click", function() {	
+				if(current==slideNum){
+					current=1;
+				}
+				else{
+					current+=1;
+				}
+				showButton();
+				switchpic(-parseInt(listimgwidth));
+			});
+			
+			
+			//切换图片函数			
+			function switchpic(offset){	
+				var newleft=parseInt(list.css("left"))+offset;	
+				list.css("left",newleft);
+				if(newleft>0){
+					list.css("left",-listimgwidth*(slideNum-1));
+				}
+				else if(newleft<-listimgwidth*(slideNum-1)){
+					list.css("left",0);
+				}
+			}
+				
+			//按钮切换代码			
+			buttons.each(function () {
+				$(this).on("click", function() {
+					var j = $(this).index();
+					switchpic(-(j+1-current)*listimgwidth);
+					current=j+1;
+					showButton();//图片切换之后调用小圆点高亮函数
+				});
+			});
+								
+			//自动循环播放代码
+			timer=0;	
+			function autoplay(){
+				clearInterval(timer);//开定时器前先清除定时器
+				timer=setInterval(function(){
+					next.trigger('click');//！！！！！注意此处写法
+				},3000)
+				
+			}
+			function stopplay(){
+				clearInterval(timer);
+			}
+			autoplay();
+			container.hover(stopplay, autoplay);								
+        });
+   	</script>
+</body>
+</html>
+
+
+
+	
+
+
+
+
+
