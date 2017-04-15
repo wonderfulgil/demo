@@ -37,19 +37,18 @@
          .box li{
             vertical-align: middle;
             text-indent: 14px;
-            font-size:14px;
-             
+            font-size:14px;             
             border:1px solid #eee;
+         }  
+         .box span,.box img,.box input{
+            display: inline-block;
+            vertical-align: middle;
          }
-         .box p{
+         .box span{
             margin-right:10px;
             color:#1f1f1f;  
             height:50px;
             line-height:50px; 
-         }
-         .box p,.box img,.box input{
-            display: inline-block;
-            vertical-align: middle;
          }
          .box input{
            border:1px solid #a59c21;
@@ -91,8 +90,8 @@ json=[{"id":1,"name":"hello"},{"id":2,"name":"hello word"}];
 for (i=0;i<json.length;i++){
     //显示json数据
     var li=document.createElement("li");
-    var p=document.createElement("p");
-    p.innerHTML=json[i].name;
+    var span=document.createElement("span");
+    span.innerHTML=json[i].name;
     var img=document.createElement("img");
     img.src="img/edit.png"; 
     //编辑作用
@@ -109,8 +108,8 @@ for (i=0;i<json.length;i++){
         three.innerHTML="取消";
         //alert(this.parentNode.nodeName)
         //alert(typeof one)
-        var p_value=this.previousSibling.innerHTML;
-        one.value=p_value;
+        var span_value=this.previousSibling.innerHTML;
+        one.value=span_value;
         //alert(p_value)
         this.parentNode.replaceChild(one,this.previousSibling);
         this.parentNode.appendChild(three);
@@ -118,31 +117,31 @@ for (i=0;i<json.length;i++){
         //编辑保存信息
         two.onclick=function(){
             var two_li=document.createElement("li");
-            var two_p=document.createElement("p");
+            var two_span=document.createElement("span");
             var two_img=document.createElement("img");
             two_img.src="img/edit.png"; 
             var input_value=this.previousSibling.value;
             this.parentNode.removeChild(three);
-            this.parentNode.replaceChild(two_p,one);
+            this.parentNode.replaceChild(two_span,one);
             this.parentNode.replaceChild(two_img,two);
-            two_p.innerHTML=input_value;
+            two_span.innerHTML=input_value;
             two_img.onclick=edit;
         }
         //编辑不保存信息，恢复原始数据
         three.onclick=function(){           
             var three_li=document.createElement("li");
-            var three_p=document.createElement("p");
+            var three_span=document.createElement("span");
             var three_img=document.createElement("img");
             three_img.src="img/edit.png"; 
-            var cancel_value=p_value;
-            this.parentNode.replaceChild(three_p,one);
+            var cancel_value=span_value;
+            this.parentNode.replaceChild(three_span,one);
             this.parentNode.replaceChild(three_img,two);
             this.parentNode.removeChild(three);
-            three_p.innerHTML=cancel_value;
+            three_span.innerHTML=cancel_value;
             three_img.onclick=edit;
         }   
     }
-    li.appendChild(p);
+    li.appendChild(span);
     li.appendChild(img);
     ul[0].appendChild(li);
  }

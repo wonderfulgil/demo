@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
 	<title>查找替换文字</title>
 	<link href="normalize.css" rel="styel/css">
 	<style>
@@ -124,6 +125,7 @@
 			margin-right:10px;
 			background: #9f9cf6;
 			margin-bottom:10px;
+
 		}
 		.serch_box .title a{
 			display:inline-block;
@@ -280,20 +282,38 @@
 		tabs("title","content","onclick");
 		tabs("search-title","content","onclick");
 		
-		//查找功能，不要忘记将之前查找的元素高亮取消
+		/*查找功能，不要忘记将之前查找的元素高亮取消
+		分三种情况：1.未输入查询信息2.输入查询信息未找到对应的内容3.输入查询信息并成功找到
+		对应的内容把它高亮显示
+		*/
 		content_a[0].onclick=function(){
 			var s=$("search").value;
 			heightlight();
-			if(!s)	return;
+			if(!s){
+				alert("请输入查找的文字");
+				$("search").focus();
+			}else if(str.innerHTML.indexOf(s)==-1){
+				alert("sorry,未找到要查询的内容");
+            }else{
 	        str.innerHTML=str.innerHTML.split(s).join('<span class="heightlight">'+s+'</span>');
+	        }	
 		}
-		//替换功能，不要忘记将之前查找的元素高亮取消
+		/*替换功能，不要忘记将之前查找的元素高亮取消
+		分三种情况：1.未输入查询信息2.输入查询信息未找到对应的内容3.输入查询信息并成功找到
+		对应的内容，把它换成需要替换的内容并高亮显示，如替换内容为空删除查找文字
+		*/
 		content_a[1].onclick=function(){
 			var sear_rep=$("search_replace").value;
 			var replace=$("replace").value;
 			heightlight();
-			if(!sear_rep)	alert("请输入查找的文字");
+			if(!sear_rep){
+				alert("请输入查找的文字");
+				$("search_replace").focus();
+			}else if(str.innerHTML.indexOf(sear_rep)==-1){
+				alert("sorry,未找到要查询的内容");
+            }else{
 	        str.innerHTML=str.innerHTML.split(sear_rep).join('<span class="heightlight">'+replace+'</span>');
+	        }
 		}
 		//取消高亮
 		function heightlight(){
