@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>查找替换文字</title>
+	<link href="normalize.css" rel="styel/css">
+	<style>
+		a {
+			text-decoration: none;
+			color:#333;
+		}
+		ul{
+			margin:0;
+			padding:0;
+		}
+		li{
+			list-style:none;
+			margin:0;
+			padding:0;
+		}
+		input,button{
+			background:none;
+			outline:none;
+			border:none;
+		}
+		.clearfix:before,.clearfix:after{
+			display: block;
+			content:"";
+		}
+		.clearfix:after{
+			clear:both;
+		}
+		.clearfix{
+			zoom:1;
+		}
+		.homework{
+			width:800px;
+			margin:0 auto;
+			line-height: 30px;
+		}
+		.homework h2{
+			text-align: center;
+		}
+		.code_box{
+			width: 800px;
+    		height: 530px;
+			padding:20px 0;
+			background:#9ed8e4;
+		}
+		.box{
+			width:500px;
+			height:200px;
+			margin:20px auto;
+			padding:40px;
+			background:#fff;
+			border-radius:40px;
+			-o-border-radius:40px;
+			-webkit-border-radius:40px;
+			-ms-border-radius:40px;
+			-moz-border-radius:40px;
+		}
+		.box_content{
+			width:400px;
+			float:left;
+			height:220px;
+			border:2px solid #aadfe9;
+			background:#ebf8f9;
+			color:#333;
+			font-weight:bold;
+			font-size:14px;
+		}
+		.box_button{
+			float:right;
+			width:61px;
+			height:61px;
+		}
+		.button_show span{
+			display: inline-block;
+			width: 61px;
+    		height: 61px;
+    		line-height: 61px;
+			margin-bottom:20px;
+			background: #83dff1;
+			color:#fff;
+			font-weight:bold;
+			text-align: center;
+			box-sizing:border-box; 
+			-moz-box-sizing:border-box; /* Firefox */ 
+			-webkit-box-sizing:border-box;
+			cursor:pointer;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			user-select:none;
+
+		}
+		.button_show #search-title li{
+			margin-bottom:20px;
+		}
+		.button_show #search-title span{
+			background: none;
+			margin-bottom:0;
+		}
+		.button_show #search-title li:nth-child(1){
+			background: #9f9cf6;
+		}
+		.button_show #search-title li:nth-child(2){
+			background: #93e69d;
+		}
+		.serch_box{
+			display: none;
+			width: 640px;
+		    height: 120px;
+		    margin: 10px auto;
+		    background: #fff;
+		    border-radius: 20px;
+		    -o-border-radius: 20px;
+		    -webkit-border-radius: 20px;
+		    -ms-border-radius: 20px;
+		    -moz-border-radius: 20px;
+		    padding: 20px;
+		    position: relative;
+		}
+		.serch_box .title li{
+			float:left;
+			margin-right:10px;
+			background: #9f9cf6;
+			margin-bottom:10px;
+
+		}
+		.serch_box .title a{
+			display:inline-block;
+			width: 90px;
+		    height: 42px;
+		    line-height: 42px;
+		    text-align:center;		
+			color:#fff;
+			font-weight:bold;
+		}
+		.serch_box .title li:nth-child(2){			
+			background:#93e69d;
+		}
+		.close{
+			position:absolute;
+			right: 30px;
+    		top: 10px;
+		}
+		.content li{
+			width:100%;
+			height:40px;
+			line-height:40px;
+			float:left;
+			display:none;
+		}
+		.content a{
+			width:15%;
+			height:40px;
+			background:#9f9cf6;
+			color:#fff;
+			display:inline-block;
+			line-height:40px;
+			text-align:center;
+			font-weight:bold;
+		}
+		.search{
+			width:83%;
+			height:40px;
+			padding:0 10px;
+			border:2px solid #aadfe9;;
+			float:left;
+			margin-right:10px;
+			border-sizing:border-box;
+			-moz-box-sizing:border-box; /* Firefox */ 
+			-webkit-box-sizing:border-box;
+		}
+		.search_replace,.replace{
+			width: 40%;
+		    height: 40px;
+		    padding: 0 10px;
+		    margin-right: 16px;
+		    border: 2px solid #aadfe9;
+		    float: left;
+		    border-sizing: border-box;
+		    -moz-box-sizing: border-box;
+		    -webkit-box-sizing: border-box;
+		}
+		.heightlight{
+			background:#007600;
+			color:#fff;
+		}
+	</style>
+<body>	
+	<div class="homework">
+		<h2>查找替换文字</h2>
+		<div class="code">
+			<div class="title">代码：</div>
+			<div class="code_box">
+				<div class="box">
+					<div class="box_content" id="box_content">有人问我我就会讲,但是无人来我期待,到无奈,有话要讲
+,得不到装载,我的心情犹豫像樽盖,等被揭开,咀巴却在养青苔,人潮内愈文静 愈变得不受理睬,自己要搞出意外,像突然地高歌任何地方也像开四面台,着最闪的衫 扮十分感慨,有人来拍照要记住插袋,你当我是浮夸吧,夸张只因我很怕,似木头似石头的话,得到注意吗,其实怕被忘记,至放大来演吧,很不安 怎去优雅,世上还赞颂沉默吗</div>
+					<div class="box_button" id="box_button">
+						<div class="button_show" id="button_show">
+							<span>展开</span>
+							<ul id="search-title">
+								<li><span>查找</span></li>
+								<li><span>替换</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="serch_box" id="serch_box">
+					<a class="close" id="close" href="javascript:;">close</a>
+					<ul class="title clearfix" id="title">
+						<li><a href="javascript:;">查询</a></li>
+						<li><a href="javascript:;">替换</a></li>
+					</ul>
+					<ul class="content clearfix" id="content">
+						<li>
+							<input type="text" class="search" id="search">
+							<a href="javascript:;" >查询</a>
+						</li>
+						<li>
+							<input type="text" class="search_replace" id="search_replace">
+							<input type="text" class="replace" id="replace">
+							<a href="javascript:;">替换</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<script>
+		function $(id){
+			return typeof id==='string'?document.getElementById(id):id;
+		}
+		var box_button=$('box_button');
+	    var button_show=$('button_show');
+	    var close=$("close");
+	    var serch_box=$("serch_box");
+	    var content_a=$("content").getElementsByTagName("a");
+	    var button_span=button_show.getElementsByTagName('span');
+	    var str=$("box_content");
+
+        //展开收起效果
+	    box_button.style.overflow="hidden";
+        onoff=true;
+		button_span[0].onclick=function(){
+			if(onoff){
+				this.innerHTML="收起";
+				box_button.style.overflow="";
+				serch_box.style.display="block";
+			}
+			else{
+				this.innerHTML="展开";
+				box_button.style.overflow="hidden";
+			}
+			 onoff=!onoff;
+		}
+		//搜索框关闭
+		close.onclick=function(){
+			serch_box.style.display="none";
+		}
+
+		//搜索框选项卡
+		function tabs(tab,cont,tag){
+			var tab=document.getElementById(tab);
+			var tab_li=tab.getElementsByTagName("li");
+			var tab_length=tab_li.length;
+			var cont=document.getElementById(cont);
+			var cont_li=cont.getElementsByTagName("li");
+			for(i=0;i<tab_length;i++){
+				tab_li[i].index=i;
+				tab_li[i][tag]=function(){
+					for(i=0;i<tab_length;i++){
+						cont_li[i].style.display="none";
+					}
+					cont_li[this.index].style.display="block";
+				}
+			}
+			cont_li[0].style.display="block";
+			
+		}
+		tabs("title","content","onclick");
+		tabs("search-title","content","onclick");
+		
+		/*查找功能，不要忘记将之前查找的元素高亮取消
+		分三种情况：1.未输入查询信息2.输入查询信息未找到对应的内容3.输入查询信息并成功找到
+		对应的内容把它高亮显示
+		*/
+		content_a[0].onclick=function(){
+			var s=$("search").value;
+			heightlight();
+			if(!s){
+				alert("请输入查找的文字");
+				$("search").focus();
+			}else if(str.innerHTML.indexOf(s)==-1){
+				alert("sorry,未找到要查询的内容");
+            }else{
+	        str.innerHTML=str.innerHTML.split(s).join('<span class="heightlight">'+s+'</span>');
+	        }	
+		}
+		/*替换功能，不要忘记将之前查找的元素高亮取消
+		分三种情况：1.未输入查询信息2.输入查询信息未找到对应的内容3.输入查询信息并成功找到
+		对应的内容，把它换成需要替换的内容并高亮显示，如替换内容为空删除查找文字
+		*/
+		content_a[1].onclick=function(){
+			var sear_rep=$("search_replace").value;
+			var replace=$("replace").value;
+			heightlight();
+			if(!sear_rep){
+				alert("请输入查找的文字");
+				$("search_replace").focus();
+			}else if(str.innerHTML.indexOf(sear_rep)==-1){
+				alert("sorry,未找到要查询的内容");
+            }else{
+	        str.innerHTML=str.innerHTML.split(sear_rep).join('<span class="heightlight">'+replace+'</span>');
+	        }
+		}
+		//取消高亮
+		function heightlight(){
+			var span=str.getElementsByTagName("span");
+			var span_length=str.getElementsByTagName("span").length;
+			for(i=0;i<span_length;i++){
+				span[i].className="";
+			}
+		}
+
+
+</script>	
+	
+</body>
+</html>

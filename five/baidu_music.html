@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度音乐-全选操作</title>
+    <style>
+        a {
+            text-decoration: none;
+            color:#333;
+        }
+        ul{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        input,button{
+            background:none;
+            outline:none;
+            border:none;
+            margin: 0;
+            padding: 0
+        }
+        .clearfix:before,.clearfix:after{
+            display: block;
+            content:"";
+        }
+        .clearfix:after{
+            clear:both;
+        }
+        .clearfix{
+            zoom:1;
+        }
+        .homework{
+            width:758px;
+            margin:0 auto;
+            line-height: 30px;
+        }
+        .homework h2{
+            text-align: center;
+        }
+        .code_box{
+            width: 758px;
+            padding:40px 0;
+            background:#543145;
+
+        }
+        .music_box{
+            width: 470px;
+            height: 350px;
+            margin: 0 auto;
+            font-size: 14px;
+            color: #333;
+            background: #fff;
+            border-radius: 10px;
+            -o-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -moz-border-radius: 10px;
+         }
+         .box{
+            padding:24px 0;
+        }
+
+        .box li{
+            line-height:50px;
+            height:42px;
+            padding:0 30px;
+            overflow: hidden;
+            color:#333;
+        }
+        .box li:nth-child(2n){
+            background: #f3b3c0
+        }
+        .box li:hover{
+            background: #de4a63;
+            color:#fff;
+        }
+        .box li span{
+            margin-left: 16px;
+        }
+        .box li span.singer_name{
+            float: right;
+        }
+        .caozuo{
+            background: #de4a63;
+            height:50px;
+            line-height: 50px;
+            padding:0 30px;
+            -o-border-radius:0 0 10px 10px;
+            -webkit-border-radius:0 0 10px 10px;
+            -ms-border-radius:0 0 10px 10px;
+            -moz-border-radius:0 0 10px 10px;
+        }
+        .caozuo li{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 34px;
+        }
+        .caozuo li input{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .caozuo li span{
+            display: inline-block;
+            width:28px;
+            height: 28px;
+            vertical-align: middle;
+            margin-right: -12px;
+        }
+        .caozuo li a{
+            margin-left:14px;
+            padding:0 2px;
+            display: inline-block;
+            vertical-align: middle;
+            color:#fff;
+        }
+        .caozuo li span.collect{
+            background: url("img/heart.png") no-repeat;
+        } 
+        .caozuo li span.addition{
+            background: url("img/add.png") no-repeat;
+        }
+        .caozuo li span.delet{
+            background: url("img/delet.png") no-repeat;
+        } 
+        
+        
+    </style>
+<body>  
+<div class="homework">
+    <h2>百度音乐-全选操作</h2>
+    <div class="code">
+        <div class="title">代码：</div>
+        <div class="code_box">
+            <div class="music_box" id="music_box">
+                <ul id="box" class="box">
+                    <li>
+                        <input type="checkbox">
+                        <span class="music_name">泡沫</span>
+                        <span class="singer_name">邓紫棋</span>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <span class="music_name">说爱你</span>
+                        <span class="singer_name">蔡依林</span>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <span class="music_name">稻香</span>
+                        <span class="singer_name">周杰伦</span>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <span class="music_name">我的梦</span>
+                        <span class="singer_name">张靓颖</span>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <span class="music_name">无处安放</span>
+                        <span class="singer_name">白若溪</span>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <span class="music_name">怎么说我不爱你</span>
+                        <span class="singer_name">萧敬腾</span>
+                    </li>
+                </ul>
+                <ul id="caozuo" class="caozuo">
+                    <li>
+                        <input type="checkbox">
+                        <a href="javascript:;" class="music_button" id="music_checkAll">全选</a>
+                    </li>
+                    <li>
+                        <span class="collect"></span>
+                        <a href="javascript:;" class="music_button" id="music_collect">收藏</a>
+                    </li>
+                    <li>
+                        <span class="addition"></span>
+                        <a href="javascript:;" class="music_button" id="music_addition">添加</a>
+                    </li>
+                    <li>
+                        <span class="delet"></span>
+                        <a href="javascript:;" class="music_button" id="music_delet">删除</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        function $(id){
+            return typeof id==='string'?document.getElementById(id):id;
+        }
+        var box=$('box');
+        var box_li=$('box').getElementsByTagName("li");
+        var music_checkAll=$('music_checkAll');
+        var checkAll_input= music_checkAll.parentNode.getElementsByTagName("input")[0]
+        var flag=true; //表示全选没有被选中
+        var num=0;//num为设置的选中的内容项的chockbox的个数
+        /*点击checkbox，颜色变化字体变化，再次点击恢复原状*/
+        for(i=0;i<box_li.length;i++){
+            box_li[i].index=i;    
+            box_li[i].children[0].onclick=function(){
+                check(this.parentNode,this);
+            }
+        }
+        /*点击li选中checkbox，颜色变化字体变化，再次点击恢复原状*/
+        for(i=0;i<box_li.length;i++){
+            box_li[i].index=i;    
+            box_li[i].onclick=function(){
+                check(this,this.children[0]);
+            }
+        }
+        //单项选中功能函数
+        function check(a,b){
+            var j=a.index;
+            if(b.checked){
+                b.checked = false;
+                a.style.color="#333";
+                if(j%2){     
+                    a.style.background="#f3b3c0"; 
+                }
+                else{   
+                    a.style.background="#fff";
+                }
+                num--;
+            }else{
+                b.checked = true;
+                a.style.background="#de4a63"; 
+                a.style.color="#fff"; 
+                num++;
+
+            }
+         //当checkbox全选时，操作的全选checkbox也要勾选
+            if(num==box_li.length) {
+                checkAll_input.checked = true;
+                flag=false;
+            }
+            else{
+                checkAll_input.checked = false;
+                flag=true;
+            }
+        }
+
+
+        //点击全选文字实现全选功能
+        /*点击全选选中所有checkbox，颜色变化字体变化，再次点击恢复原状*/ 
+        music_checkAll.onclick=function(){
+            SelectAll(this.parentNode.getElementsByTagName("input")[0]);
+        } 
+
+        //点击全选文字前的checkbox实现全选功能
+        /*点击全选选中所有checkbox，颜色变化字体变化，再次点击恢复原状*/
+        checkAll_input.onclick=function(){
+            SelectAll(this);
+        } 
+
+        //全选功能函数
+        function SelectAll(a){
+           if(flag){//如果全选没有被选中
+                a.checked = true;
+                num=box_li.length;
+                for(i=0;i<box_li.length;i++){
+                    box_li[i].children[0].checked = true;
+                    box_li[i].style.background="#de4a63"; 
+                    box_li[i].style.color="#fff";   
+                };
+                
+            }
+            else{//如果全选被选中
+                a.checked = false;
+                num=0;
+                for(i=0;i<box_li.length;i++){//遍历内容项
+                    box_li[i].children[0].checked = false;
+                    box_li[i].style.color="#333";
+                    if(i%2){     
+                        box_li[i].style.background="#f3b3c0";
+                    }
+                    else{
+                        box_li[i].style.background="#fff";
+                    }
+                };
+                
+            }
+            flag=!flag; 
+        } 
+   
+</script>   
+    
+</body>
+</html>

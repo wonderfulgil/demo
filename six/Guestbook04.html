@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板添加批量删除信息,限制5条数据</title>
+    <style>
+        a {
+            text-decoration: none;
+            color:#333;
+        }
+        ul{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        input,button{
+            background:none;
+            outline:none;
+            border:none;
+            margin: 0;
+            padding: 0
+        }
+        .clearfix:before,.clearfix:after{
+            display: block;
+            content:"";
+        }
+        .clearfix:after{
+            clear:both;
+        }
+        .clearfix{
+            zoom:1;
+        }
+        .homework{
+            width:800px;
+            margin:0 auto;
+            line-height: 30px;
+        }
+        .homework h2{
+            text-align: center;
+        }
+        .code_box{
+            width: 700px;
+            height: 600px;
+            padding:20px 0;
+            background:#7e89c2;
+
+        }
+        .gust_box{
+            width:400px;
+            margin:auto;
+            overflow: hidden;
+        }
+
+        .box{
+            width:376px;
+            height:180px;
+            display: inline-block;
+            margin:20px auto;
+            padding:10px;
+            font-size:14px;
+            color:#333;
+            background:#eaebf9;
+            border-radius:16px;
+            -o-border-radius:16px;
+            -webkit-border-radius:16px;
+            -ms-border-radius:16px;
+            -moz-border-radius:16px;
+            border: 2px solid #4d4189;
+        }
+        .gust_box .gust_button{
+            float:right;
+            display: inline-block;
+            width: 106px;
+            height: 30px;
+            line-height:30px;
+            text-align: center;
+            color:#fff;
+            font-size:14px;
+            margin-right: 15px;
+            background:#00a6cc;
+            border:2px solid #fff;
+            border-radius:10px;
+            -o-border-radius:10px;
+            -webkit-border-radius:10px;
+            -ms-border-radius:10px;
+            -moz-border-radius:10px;
+        }
+
+        .content_box{
+            width:400px;
+            margin:20px auto;
+
+        }
+        .content_box li{
+            overflow:hidden;
+            margin-bottom:10px;
+            width:400px;
+            position: relative;
+        }
+        .content_box span{
+            display: inline-block;
+            vertical-align: middle;
+            width:48px;
+            height:48px;
+        }
+
+        .content_box i{
+            background: #4e4189;
+            width:250px;
+            line-height:48px;
+            word-wrap: break-word;
+            display: inline-block;
+            float:right;
+            padding: 0px 48px 0 20px;
+             border-radius:10px;
+            -o-border-radius:10px;
+            -webkit-border-radius:10px;
+            -ms-border-radius:10px;
+            -moz-border-radius:10px;
+            color:#fff;
+            font-style: normal;
+        }
+        .content_box li a{
+            position: absolute;
+            right: 5px;
+            bottom: 9px;
+            display: inline-block;
+            padding: 0px 6px;
+            border-radius: 5px;
+            -o-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -moz-border-radius: 5px;
+            color: #fff;
+            display: none; 
+            background: #00a6cc;
+            font-size: 14px;
+        }
+        .content_box li:hover a{ 
+            display: block;
+        }   
+
+    </style>
+<body>  
+    <div class="homework">
+        <h2>留言板添加批量删除信息,限制5条数据</h2>
+        <div class="code">
+            <div class="title">代码：</div>
+            <div class="code_box">
+                <div class="gust_box" id="gust_box">
+                    <textarea id="box" class="box"></textarea>
+                    <a href="javascript:;" class="gust_button" id="gust_delet">批量删除</a>
+                    <a href="javascript:;" class="gust_button" id="gust_button">提交</a>
+                </div>
+                <ul class="content_box" id="content_box">
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+<script>
+        function $(id){
+            return typeof id==='string'?document.getElementById(id):id;
+        }
+        json=[
+          {"id":1,"content":"hello world"},
+          {"id":2,"content":"nice to meet you"},
+          {"id":3,"content":"ok"},
+        ];
+
+        var box=$('box');
+        var gust_button=$('gust_button');
+        var gust_delet=$('gust_delet');
+        var content_box=$('content_box');
+        var num=5;
+        /*需求分析：1、输入内容为空提示2.不为空显示信息，隔行头像不同，3.限制留言条数，最先留言的会被清除4.点击删除按钮当前留言删除，隔行头像仍不同
+        */
+
+        for(i=0;i<json.length;i++){
+            var content=document.createElement("li");
+            var checkbox=document.createElement("input");
+            checkbox.type="checkbox";
+            checkbox.value=json[i].id;
+            var span=document.createElement("span");
+            span.style.background="url(img/touxiang.png)" 
+            var content_i=document.createElement("i");
+            content_i.innerHTML=json[i].content; 
+            var content_a=document.createElement("a");
+            content_a.innerHTML="删除"; 
+            content_a.href="javascript:;"; 
+            content.appendChild(checkbox);
+            content.appendChild(span);
+            content.appendChild(content_i);
+            content.appendChild(content_a);
+
+            content_a.onclick=function(){
+                if(window.confirm("确定删除所选记录？")) 
+                    {  
+                        content_box.removeChild(this.parentNode);
+                        alert("删除成功"); 
+                    }  
+            }
+            var content_span=content_box.getElementsByTagName("span");
+            var content_li=content_box.getElementsByTagName("li");
+            if(content_box.children[0]){
+                content_box.insertBefore(content,content_box.children[0]);
+            }else{
+                content_box.appendChild(content);
+            }
+        }
+        gust_button.onclick=function(){
+            var gust_content=box.value;
+            if(!gust_content) {
+                alert("请输入留言内容");
+                box.focus();
+            }else{
+                var content=document.createElement("li");
+                var oli=$("content_box").getElementsByTagName("li");
+                var oli_length=$("content_box").getElementsByTagName("li").length;
+                var oli_lth=oli_length+1;
+                var checkbox=document.createElement("input");
+                checkbox.type="checkbox";
+                checkbox.value=oli_lth++;
+                var span=document.createElement("span");
+                span.style.background="url(img/touxiang.png)" 
+                var content_i=document.createElement("i");
+                content_i.innerHTML=gust_content; 
+                var content_a=document.createElement("a");
+                content_a.innerHTML="删除"; 
+                content_a.href="javascript:;"; 
+                content.appendChild(checkbox);
+                content.appendChild(span);
+                content.appendChild(content_i);
+                content.appendChild(content_a);
+
+                content_a.onclick=function(){
+                  if(window.confirm("确定删除所选记录？")) 
+                    {  
+                        content_box.removeChild(this.parentNode);
+                        alert("删除成功"); 
+                    }  
+                }
+                var content_span=content_box.getElementsByTagName("span");
+                var content_li=content_box.getElementsByTagName("li");
+                if(content_box.children[0]){
+                    content_box.insertBefore(content,content_box.children[0]);
+                }else{
+                    content_box.appendChild(content);
+                }
+               /*限制留言条数，最先留言的会被清除*/
+               if(content_li[num]){
+                 content_box.removeChild(content_li[num]);
+               }
+               box.value="";  
+            }
+        }
+        //批量删除
+        gust_delet.onclick=function(){
+            var ocheckbox=$("content_box").getElementsByTagName("input");
+            var oli=$("content_box").getElementsByTagName("li");
+            var ids = "";  
+            if(!oli.length) {
+                alert("当前没有留言内容！");
+                return;
+            }else{ 
+                /*记录要删除的信息的id，用字符串连接的方式记录，不要忘了去除最后一个，
+                实际开发的时候是把需要删除的信息的id传给后台，后台数据库删除成功，返回前台信息，比如删除成功为1，删除失败为0。。*/
+                for(i=0;i<ocheckbox.length;i++){
+                  if(ocheckbox[i].checked) {
+                    ids += ocheckbox[i].value + ",";         
+                  }
+                }
+                //去掉字符串末尾的‘,'
+                ids=ids.substring(0, ids.length-1);
+                // 判断是否至少选择一项 
+                if(ids==""){  
+                    alert("请选择要删除的记录");  
+                    return;
+                }else{ // 批量选择  
+                    if(window.confirm("确定删除所选记录？")) 
+                    {  
+                        for(i=0;i<ocheckbox.length;i++){ 
+                          if(ocheckbox[i].checked) {  
+                          content_box.removeChild(ocheckbox[i].parentNode); 
+                           i--;//注意删除一行i的值也要变化   
+                          }
+                        }  
+                        alert("删除成功"); 
+                    }  
+                }
+            }
+         }
+</script>   
+    
+</body>
+</html>

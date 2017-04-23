@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板添加信息，限制条数</title>
+    <style>
+        a {
+            text-decoration: none;
+            color:#333;
+        }
+        ul{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        input,button{
+            background:none;
+            outline:none;
+            border:none;
+            margin: 0;
+            padding: 0
+        }
+        .clearfix:before,.clearfix:after{
+            display: block;
+            content:"";
+        }
+        .clearfix:after{
+            clear:both;
+        }
+        .clearfix{
+            zoom:1;
+        }
+        .homework{
+            width:800px;
+            margin:0 auto;
+            line-height: 30px;
+        }
+        .homework h2{
+            text-align: center;
+        }
+        .code_box{
+            width: 700px;
+            height: 600px;
+            padding:20px 0;
+            background:#7e89c2;
+
+        }
+        .gust_box{
+            width:384px;
+            margin:auto;
+            overflow: hidden;
+        }
+
+        .box{
+            width:360px;
+            height:180px;
+            display: inline-block;
+            margin:20px auto;
+            padding:10px;
+            font-size:14px;
+            color:#333;
+            background:#eaebf9;
+            border-radius:16px;
+            -o-border-radius:16px;
+            -webkit-border-radius:16px;
+            -ms-border-radius:16px;
+            -moz-border-radius:16px;
+            border: 2px solid #4d4189;
+        }
+        .gust_box .gust_button{
+            float:right;
+            display: inline-block;
+            width: 106px;
+            height: 30px;
+            line-height:30px;
+            text-align: center;
+            color:#fff;
+            font-size:14px;
+            background:#00a6cc;
+            border:2px solid #fff;
+            border-radius:10px;
+            -o-border-radius:10px;
+            -webkit-border-radius:10px;
+            -ms-border-radius:10px;
+            -moz-border-radius:10px;
+        }
+
+        .content_box{
+            width:384px;
+            margin:20px auto;
+
+        }
+        .content_box li{
+            overflow:hidden;
+            margin-bottom:10px;
+            width:384px;
+        }
+        .content_box span{
+            display: inline-block;
+            vertical-align: middle;
+            width:48px;
+            height:48px;
+        }
+
+        .content_box i{
+            background: #4e4189;
+            width:250px;
+            line-height:48px;
+            word-wrap: break-word;
+            display: inline-block;
+            float:right;
+            padding:0 30px;
+             border-radius:10px;
+            -o-border-radius:10px;
+            -webkit-border-radius:10px;
+            -ms-border-radius:10px;
+            -moz-border-radius:10px;
+            color:#fff;
+            font-style: normal;
+        }
+
+
+    </style>
+<body>  
+    <div class="homework">
+        <h2>留言板添加信息，限制条数</h2>
+        <div class="code">
+            <div class="title">代码：</div>
+            <div class="code_box">
+                <div class="gust_box" id="gust_box">
+                    <textarea id="box" class="box"></textarea>
+                    <a href="javascript:;" class="gust_button">提交</a>
+                </div>
+                <ul class="content_box" id="content_box">
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+<script>
+        function $(id){
+            return typeof id==='string'?document.getElementById(id):id;
+        }
+        var box=$('box');
+        var gust_button=$('gust_box').getElementsByTagName("a");
+        var content_box=$('content_box');
+        var num=5;
+        /*需求分析：1、输入内容为空提示2.不为空显示信息，隔行头像不同，3.限制留言条数，最先留言的会被清除
+        */
+        gust_button[0].onclick=function(){
+            var gust_content=box.value;
+            if(!gust_content) {
+                alert("请输入留言内容");
+                box.focus();
+            }else{
+                var content=document.createElement("li");
+                var span=document.createElement("span");
+                var content_i=document.createElement("i");
+                content_i.innerHTML=gust_content; 
+                var content_span=content_box.getElementsByTagName("span");
+                var content_li=content_box.getElementsByTagName("li");
+                if(content_box.children[0]){
+                    content_box.insertBefore(content,content_box.children[0]);
+                }else{
+                    content_box.appendChild(content);
+                }
+                content.appendChild(span);
+                content.appendChild(content_i);
+                
+                /*注意头像的背景图片的选取要在内容添加之后*/
+               for(i=0;i<content_span.length;i++){
+                    if(i%2){
+                      content_span[i].style.background="url(img/touxiang.png)"   
+                    }else{
+                      content_span[i].style.background="url(img/touxiang2.png)"    
+                    }
+               }
+               /*限制留言条数，最先留言的会被清除*/
+               if(content_li[num]){
+                 content_box.removeChild(content_li[num]);
+               }
+               box.value="";  
+            }
+
+        }
+</script>   
+    
+</body>
+</html>
