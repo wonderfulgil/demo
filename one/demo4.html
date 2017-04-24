@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>hover透明度变化</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+   
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+.siderbar_list{
+	width:1180px;
+	margin: auto;
+}
+.siderbar_list ul {
+    margin-right: -20px;
+	overflow: hidden;
+}
+.siderbar_list h2{
+	line-height: 20px;
+    font-size: 18px;
+    color: #666;
+    border-left: #ff6600 solid 5px;
+    padding-left: 10px;
+    width: 234px;
+	font-family: "Helvetica Neue",Helvetica,"Avenir Next",Avenir,"Lantinghei SC","Hiragino Sans GB","Microsoft YaHei",微软雅黑,STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+}
+
+.siderbar_list li{
+	float:left;
+	margin: 16px 20px 0 0;
+}
+.siderbar_list li a{
+	width: 220px;
+    height: 150px;
+    display: inline-block;
+	text-align: center;
+}
+.siderbar_list li img {
+    width:220px;
+    height: 150px;
+    transition: all 1s ease 0s;
+    -moz-transition: all 1s ease 0s; /* Firefox 4 */
+	-webkit-transition:all 1s ease 0s; /* Safari 和 Chrome */
+	-o-transition:all 1s ease 0s;/* Opera */
+}
+
+.siderbar_list li a:hover img{
+	opacity: .75;
+	filter: alpha(opacity=75);
+}
+
+</style>
+</head>
+<body>
+<div class="siderbar_list">
+	<h2>热门推荐</h2>
+	<ul>
+		<li>
+			<a href="">
+				<img src="img/201607250949151024933.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/201607250949151024933.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				
+				<img src="img/201607250949151024933.jpg">
+				
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/201607250949151024933.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/201607250949151024933.jpg">
+			</a>
+		</li>
+	</ul>
+</div>
+</body>
+</html>

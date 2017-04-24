@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+   
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+.siderbar_list{
+	width: 940px;
+	margin: auto;
+}
+.siderbar_list ul {
+    width: 960px;
+    margin-right: -20px;
+	overflow: hidden;
+}
+.siderbar_list h2{
+	line-height: 20px;
+    font-size: 18px;
+    color: #666;
+    border-left: #ff6600 solid 5px;
+    padding-left: 10px;
+    width: 234px;
+	font-family: "Helvetica Neue",Helvetica,"Avenir Next",Avenir,"Lantinghei SC","Hiragino Sans GB","Microsoft YaHei",微软雅黑,STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+}
+
+.siderbar_list li{
+	float:left;
+	position:relative;
+	margin: 20px 20px 0 0;
+	overflow:hidden
+}
+.siderbar_list li a{
+	width: 220px;
+    height: 202px;
+    display: inline-block;
+	-webkit-transition: 10s linear;
+    transition: .3s linear;
+}
+.siderbar_list li a:hover {
+	box-shadow: 0px 0 6px rgba(0, 0, 0, 0.2);
+}
+.siderbar_list li img {
+    width: 220px;
+    height: 125px;
+}
+.siderbar_list li a:hover img{
+    -moz-animation: .3s carrun linear;
+    -webkit-animation: .3s carrun linear;
+    -o-transition:.3s carrun linear;
+    -ms-animation: .3s carrun linear;
+    animation: .3s carrun linear;
+}
+@-webkit-keyframes carrun {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+
+    48.5% {
+        -webkit-transform: translate(-100%);
+        transform: translate(-100%)
+    }
+
+    49% {
+        -webkit-transform: translate(-100%,-100%);
+        transform: translate(-100%,-100%)
+    }
+
+    49.5% {
+        -webkit-transform: translate(100%,-100%);
+        transform: translate(100%,-100%)
+    }
+
+    50% {
+        -webkit-transform: translate(100%);
+        transform: translate(100%)
+    }
+
+    to {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+  
+}
+@-moz-keyframes carrun {
+   0% {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+
+    48.5% {
+        -webkit-transform: translate(-100%);
+        transform: translate(-100%)
+    }
+
+    49% {
+        -webkit-transform: translate(-100%,-100%);
+        transform: translate(-100%,-100%)
+    }
+
+    49.5% {
+        -webkit-transform: translate(100%,-100%);
+        transform: translate(100%,-100%)
+    }
+
+    50% {
+        -webkit-transform: translate(100%);
+        transform: translate(100%)
+    }
+
+    to {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+}
+
+@-ms-keyframes carrun {
+   0% {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+
+    48.5% {
+        -webkit-transform: translate(-100%);
+        transform: translate(-100%)
+    }
+
+    49% {
+        -webkit-transform: translate(-100%,-100%);
+        transform: translate(-100%,-100%)
+    }
+
+    49.5% {
+        -webkit-transform: translate(100%,-100%);
+        transform: translate(100%,-100%)
+    }
+
+    50% {
+        -webkit-transform: translate(100%);
+        transform: translate(100%)
+    }
+
+    to {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+}
+@keyframes carrun {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+
+    48.5% {
+        -webkit-transform: translate(-100%);
+        transform: translate(-100%)
+    }
+
+    49% {
+        -webkit-transform: translate(-100%,-100%);
+        transform: translate(-100%,-100%)
+    }
+
+    49.5% {
+        -webkit-transform: translate(100%,-100%);
+        transform: translate(100%,-100%)
+    }
+
+    50% {
+        -webkit-transform: translate(100%);
+        transform: translate(100%)
+    }
+
+    to {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+}
+
+.siderbar_list li .title{
+	line-height: 18px;
+    font-size: 12px;
+    padding: 7px 10px 0 10px;
+    height: 36px;
+    overflow: hidden;
+	color: #333;
+}
+.siderbar_list li .num {
+    font-size: 12px;
+    color: #999;
+	padding: 0 10px;
+}
+.num span.sale {
+    float: right;
+    padding: 0 5px;
+    margin-top: 7px;
+    color: #fff;
+    background: #00c94c;
+}
+ .num b {
+    font-size: 20px;
+    color: #f30;
+    font-weight: normal;
+}
+</style>
+</head>
+<body>
+<div class="siderbar_list">
+	<h2>全国租车精选</h2>
+	<ul>
+		<li>
+			<a href="">
+				<img src="img/car1.jpg">
+				<p class="title">别克</p>
+				<div class="num">  
+					<span class="sale">省¥200</span>   
+					<span class="price">¥<b>99/天</b>起</span>  
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/car2.jpg">
+				<p class="title">别克</p>
+				<div class="num">  
+					<span class="sale">省¥200</span>   
+					<span class="price">¥<b>99/天</b>起</span>  
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/car3.jpg">
+				<p class="title">别克</p>
+				<div class="num">  
+					<span class="sale">省¥200</span>   
+					<span class="price">¥<b>99/天</b>起</span>  
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/car1.jpg">
+				<p class="title">别克</p>
+				<div class="num">  
+					<span class="sale">省¥200</span>   
+					<span class="price">¥<b>99/天</b>起</span>  
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/car2.jpg">
+				<p class="title">别克</p>
+				<div class="num">  
+					<span class="sale">省¥200</span>   
+					<span class="price">¥<b>99/天</b>起</span>  
+					
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/car3.jpg">
+				<p class="title">别克</p>
+				<div class="num">  
+					<span class="sale">省¥200</span>   
+					<span class="price">¥<b>99/天</b>起</span>  
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/car1.jpg">
+				<p class="title">别克</p>
+				<div class="num">  
+					<span class="sale">省¥200</span>   
+					<span class="price">¥<b>99/天</b>起</span>  
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/car2.jpg">
+				<p class="title">合肥到芜湖方特（一期二期三期四期）一日游_芜湖方特一日游报价</p>
+				<div class="num">  
+					<span class="sale">省¥200</span>   
+					<span class="price">¥<b>99/天</b>起</span>  
+				</div>
+			</a>
+		</li>
+	</ul>
+</div>
+</body>
+</html>

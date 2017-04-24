@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>swing摇摆效果动画</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+   
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+ img {
+    border: 0;
+}
+.siderbar_list{
+	width: 1190px;
+	margin: auto;
+}
+.siderbar_list ul {
+    width: 1233px;
+    margin-right: -43px;
+}
+.siderbar_list h2{
+	background: url(img/jingxuanTitle.png) no-repeat;
+	line-height: 60px;
+	height: 60px;
+    margin: 0 auto;
+    padding-left: 10px;
+	font-family: "Helvetica Neue",Helvetica,"Avenir Next",Avenir,"Lantinghei SC","Hiragino Sans GB","Microsoft YaHei",微软雅黑,STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+}
+
+.siderbar_list li{
+	float:left;
+	margin-right: 9px;
+    border-right: 1px #ccc solid;
+    width: 230px;
+	height: 52px;
+    overflow: hidden;
+}
+.siderbar_list li:hover {
+    background-color: #eee;
+}
+.siderbar_list li img {
+    width: 203px;
+    height: 52px;
+}
+
+.hui-swing{
+    -webkit-animation: 1s ease;
+    -moz-animation:1s ease;
+    -ms-animation: 1s ease;
+    -o-animation: 1s ease;
+    animation: 1s ease
+}
+.hui-swing {
+    -webkit-animation-name: swing;
+    -moz-animation-name: swing;
+    -ms-animation-name: swing;
+    -o-animation-name: swing;
+    animation-name: swing
+}
+@-webkit-keyframes swing {
+    20% {
+        -webkit-transform: rotate(15deg)
+    }
+
+    40% {
+        -webkit-transform: rotate(-10deg)
+    }
+
+    60% {
+        -webkit-transform: rotate(5deg)
+    }
+
+    80% {
+        -webkit-transform: rotate(-5deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(0)
+    }
+}
+@-moz-keyframes swing {
+    20% {
+        -moz-transform: rotate(15deg)
+    }
+
+    40% {
+        -moz-transform: rotate(-10deg)
+    }
+
+    60% {
+        -moz-transform: rotate(5deg)
+    }
+
+    80% {
+        -moz-transform: rotate(-5deg)
+    }
+
+    100% {
+        -moz-transform: rotate(0)
+    }
+}
+@-ms-keyframes swing {
+    20% {
+        -ms-transform: rotate(15deg)
+    }
+
+    40% {
+        -ms-transform: rotate(-10deg)
+    }
+
+    60% {
+        -ms-transform: rotate(5deg)
+    }
+
+    80% {
+        -ms-transform: rotate(-5deg)
+    }
+
+    100% {
+        -ms-transform: rotate(0)
+    }
+}
+@keyframes swing {
+    20% {
+        transform: rotate(15deg)
+    }
+
+    40% {
+        transform: rotate(-10deg)
+    }
+
+    60% {
+        transform: rotate(5deg)
+    }
+
+    80% {
+        transform: rotate(-5deg)
+    }
+
+    100% {
+        transform: rotate(0)
+    }
+}
+/*已用*/
+</style>
+</head>
+<body>
+<div class="siderbar_list">
+	<h2></h2>
+	<ul>
+		<li><a href="#"><img src="img/1.jpeg" width="203" height="52"></a></li>
+		<li><a href=""><img src="img/2.jpeg" width="203" height="52"></a></li>
+		<li><a href=""><img src="img/3.jpeg" width="203" height="52"></a></li>
+		<li><a href=""><img src="img/4.jpeg" width="203" height="52"></a></li>
+		<li><a href=""><img src="img/5.jpeg" width="203" height="52"></a></li>
+	</ul>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	function hover_class(control, class1) {
+        $(control).hover(function() {
+            $(this).addClass(class1)
+        }, function() {
+            $(this).removeClass(class1)
+        });
+    }
+	hover_class(".siderbar_list li","hui-swing")
+</script>
+</body>
+</html>

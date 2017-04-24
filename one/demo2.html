@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<title>CSS3玻璃流光特效</title>
+<meta charset="UTF-8" />
+<style>
+/*CSS源代码*/
+.light:before {
+	background: -webkit-linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.2) 50%,rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.2) 50%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.2) 50%,rgba(255,255,255,0) 100%);
+    content: "";
+    display: inline-block;
+    height: 380px;
+    width: 110px;
+    position: absolute;
+    top: 0;
+    left: -180px;
+    transform: skewX(-25deg);
+    -ms-transform: skewX(-25deg);
+    -webkit-transform: skewX(-25deg);
+    -moz-transform: skewX(-25deg);
+    -o-transform: skewX(-25deg);
+}
+.sitebanner01:hover a:before{
+    -ms-animation: bannerlg .8s ease;
+    -webkit-animation: bannerlg .8s ease;
+    -moz-animation: bannerlg .8s ease;
+    -o-animation: bannerlg .8s ease;
+    animation: bannerlg .8s ease;
+}	
+@keyframes bannerlg {
+	0% {
+		left: -180px;
+	}
+
+	100% {
+		left: 300px;
+	}
+}
+
+@-moz-keyframes bannerlg {
+	0% {
+		left: -180px;
+	}
+
+100% {
+		left: 300px;
+	}
+}
+
+@-webkit-keyframes bannerlg {
+	0% {
+		left: -180px;
+	}
+
+	100% {
+		left: 300px;
+	}
+}
+
+@-o-keyframes bannerlg {
+	0% {
+		left: -180px;
+	}
+
+	100% {
+		left: 300px;
+	}
+}
+
+@-ms-keyframes bannerlg {
+	0% {
+		left: -180px;
+	}
+
+	100% {
+		left: 300px;
+	}
+}
+</style>
+</head>
+<body>
+<!-- HTML代码片段中请勿添加<body>标签 //-->
+	<div class="sitebanner01">
+				<a href="" class="light"><img src="http://ww4.sinaimg.cn/mw600/005vbOHfgw1ercvg85sr0j30jg0t6tdq.jpg" width="224" height="289"></a>
+			</div>
+</body>
+</html>
+
+
+

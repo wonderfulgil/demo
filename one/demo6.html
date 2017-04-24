@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>跳动二(欣欣网)</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+   
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+.siderbar_list{
+	width: 362px;
+	margin: auto;
+}
+.siderbar_list ul {
+    width: 362px;
+	overflow: hidden;
+}
+
+.siderbar_list li{
+	float:left;
+	width: 120px;
+    height: 110px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.siderbar_list li a{
+    display: inline-block;
+	text-align: center;
+	transition: all 0.15s;
+	-moz-transition: all 0.15s; /* Firefox 4 */
+	-webkit-transition:  all 0.15s; /* Safari 和 Chrome */
+	-o-transition:  all 0.15s;/* Opera */
+	width: 120px;
+	height: 50px;
+    padding-top: 70px;
+}
+.siderbar_list li a.i1{ background:url(img/1.1.jpg) no-repeat 6px 0;}
+.siderbar_list li a.i2{ background:url(img/2.jpg) no-repeat 0px 0;}
+.siderbar_list li a.i3{ background:url(img/3.jpg) no-repeat 0px 0;}
+.siderbar_list li a.i4{ background:url(img/4.jpg) no-repeat 5px 0;}
+.siderbar_list li a.i5{ background:url(img/5.jpg) no-repeat 2px 0;}
+.siderbar_list li a.i6{ background:url(img/6.jpg) no-repeat 0px 0;}
+.siderbar_list li a.i7{ background:url(img/7.jpg) no-repeat 3px 0;}
+.siderbar_list li a.i8{ background:url(img/8.jpg) no-repeat 2px 0;}
+.siderbar_list li a.i9{ background:url(img/9.jpg) no-repeat 0px 0;}
+.siderbar_list li.hov a.i1{ background:url(img/1.gif) no-repeat 6px 0;}
+.siderbar_list li.hov a.i2{ background:url(img/2.gif) no-repeat 0px 0;}
+.siderbar_list li.hov a.i3{ background:url(img/3.gif) no-repeat 0px 0;}
+.siderbar_list li.hov a.i4{ background:url(img/4.gif) no-repeat 5px 0;}
+.siderbar_list li.hov a.i5{ background:url(img/5.gif) no-repeat 2px 0;}
+.siderbar_list li.hov a.i6{ background:url(img/6.gif) no-repeat 0px 0;}
+.siderbar_list li.hov a.i7{ background:url(img/7.gif) no-repeat 3px 0;}
+.siderbar_list li.hov a.i8{ background:url(img/8.gif) no-repeat 2px 0;}
+.siderbar_list li.hov a.i9{ background:url(img/9.gif) no-repeat 0px 0;}
+.siderbar_list li:nth-child(3n+1){ border-left:0;}
+.siderbar_list li:nth-child(3n+3){ border-right:0;}
+.siderbar_list li:nth-last-child(3){ border-bottom:0;}
+.siderbar_list li:nth-last-child(2){ border-bottom:0;}
+.siderbar_list li:nth-last-child(1){ border-bottom:0;}
+</style>
+</head>
+<body>
+<div class="siderbar_list">
+	<ul>
+		<li>
+			<a href="" class="i1">
+				火车时刻表
+			</a>
+		</li>
+		<li>
+			<a href="" class="i2">
+				动车时刻表
+			</a>
+		</li>
+		<li>
+			<a href="" class="i3">
+			汽车时刻表
+			</a>
+		</li>
+		<li>
+			<a href="" class="i4">
+				天气预报
+			</a>
+		</li>
+		<li>
+			<a href="" class="i5">
+				电子地图
+			</a>
+		</li>
+		<li>
+			<a href="" class="i6">
+				欣欣美食
+			</a>
+		</li>
+		<li>
+			<a href="" class="i7">
+				公交查询
+			</a>
+		</li>
+		<li>
+			<a href="" class="i8">
+				旅游网址
+			</a>
+		</li>
+		<li>
+			<a href="" class="i9">
+				邮编查询
+			</a>
+		</li>
+	</ul>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	   function hover_class(control, class1) {
+			$(control).hover(function() {
+				$(this).addClass(class1)
+			}, function() {
+				$(this).removeClass(class1)
+			});
+		}
+	hover_class(".siderbar_list li","hov");
+</script>
+</body>
+</html>

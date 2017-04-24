@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+<title>跳动一</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+   
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+
+
+
+.siderbar_list{
+	width: 1160px;
+	margin: auto;
+}
+.siderbar_list ul {
+    width: 1200px;
+    margin-left: -20px;
+	overflow: hidden;
+}
+.siderbar_list h2{
+	height:55px;
+	line-height:55px;
+	text-align:center;
+	font-size: 38px;
+    font-weight: 500;
+    padding-top: 58px;
+	font-family: "Helvetica Neue",Helvetica,"Avenir Next",Avenir,"Lantinghei SC","Hiragino Sans GB","Microsoft YaHei",微软雅黑,STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+}
+
+.siderbar_list li{
+	float:left;
+	position:relative;
+	margin: 20px;
+}
+.siderbar_list li a{
+	width: 360px;
+    height: 300px;
+    display: inline-block;
+	text-align: center;
+	color: #fff;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+	transition: box-shadow 218ms ease-in-out,transform 218ms ease-in-out,-webkit-transform 218ms ease-in-out;
+	-moz-transition: box-shadow 218ms ease-in-out,transform 218ms ease-in-out,-webkit-transform 218ms ease-in-out; /* Firefox 4 */
+	-webkit-transition:box-shadow 218ms ease-in-out,transform 218ms ease-in-out,-webkit-transform 218ms ease-in-out; /* Safari 和 Chrome */
+	-o-transition: box-shadow 218ms ease-in-out,transform 218ms ease-in-out,-webkit-transform 218ms ease-in-out; /* Opera */
+}
+.siderbar_list li a:hover {
+    -webkit-transform:translate3d(0,-10px,0);
+    -moz-transform: translate3d(0,-10px,0);
+    -ms-transform: translate3d(0,-10px,0);
+    -o-transform: translate3d(0);
+    transform: translate3d(0,-10px,0);
+	box-shadow: 0 14px 45px rgba(0,0,0,.3);
+}
+.siderbar_list li img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.siderbar_list li .title{
+	font-size: 32px;
+    font-weight: 500;
+    line-height: 44px;
+    padding-top: 116px;
+    position: relative;
+}
+.siderbar_list li .title_small{
+	font-size: 18px;
+    font-weight: 200;
+    position: relative;
+}
+
+</style>
+</head>
+<body>
+<div class="siderbar_list">
+	<h2>当季热门</h2>
+	<ul>
+		<li>
+			<a href="">
+				<img src="img/1.png">
+				<p class="title">东京</p>
+				<p class="title_small">823住宿</p>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/2.png">
+				<p class="title">京都</p>
+				<p class="title_small">829住宿</p>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<img src="img/3.png">
+				<p class="title">佛罗伦萨</p>
+				<p class="title_small">1401住宿</p>
+			</a>
+		</li>
+	</ul>
+</div>
+</body>
+</html>
