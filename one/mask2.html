@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>hover遮罩信息从下往上划出-css3</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+   
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+img{border:0;}
+.siderbar_list{
+	width: 1020px;
+	margin: auto;
+}
+.siderbar_list ul {
+    width: 1026px;
+    margin-left: -3px;
+	overflow: hidden;
+}
+.siderbar_list h2{
+	line-height: 20px;
+    font-size: 18px;
+    color: #666;
+    border-left: #ff6600 solid 5px;
+    padding-left: 10px;
+    width: 234px;
+	font-family: "Helvetica Neue",Helvetica,"Avenir Next",Avenir,"Lantinghei SC","Hiragino Sans GB","Microsoft YaHei",微软雅黑,STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+}
+.siderbar_list li{
+	float:left;
+	position:relative;
+	width: 180px;
+    height: 180px;
+	margin: 3px;
+}
+.siderbar_list li a{
+	width: 180px;
+    height: 180px;
+    display: inline-block;
+	text-align: center;
+}
+.siderbar_list li img {
+    width: 100%;
+    height: 180px;
+}
+
+.siderbar_list li .mask {
+    position: absolute;
+    left: 0;
+    bottom: 0;	
+	width: 100%;
+    height:0;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #fff;
+    -webkit-transition:all 0.8s ease;
+	-ms-transition:all 0.8s ease;
+	-moz-transition:all 0.3s ease;
+	-o-transition:all 0.8s ease;
+	transition:all 0.3s ease;
+}
+.siderbar_list li:hover .mask {
+	height: 100%;
+}
+.siderbar_list li .name{
+	line-height: 24px;
+    font-size: 12px;
+    height: 24px;
+	margin-top: 27px;
+    font-size: 20px;
+}
+.siderbar_list li .title{
+	margin-top: 9px;
+    color: #a9a9a9;
+}
+.siderbar_list li .mask .daily {
+	margin-top: 30px;
+    display: inline-block;
+    width: 46%;
+    font-size: 24px;
+    border-right: 1px solid #fff;
+}
+.siderbar_list li .mask span{
+    font-size: 14px;
+}
+.siderbar_list li .mask .fans {
+	margin-top: 30px;
+    display: inline-block;
+    width: 46%;
+    font-size: 24px;
+}
+
+</style>
+</head>
+<body>
+<div class="siderbar_list">
+	<h2>热门机构</h2>
+	<ul>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">《大科技》杂志</p>
+					<div class="title">医学科普作者</div>
+					<div class="daily">472<br><span>文章</span>
+					</div>
+					<div class="fans">4767<br><span>粉丝</span>
+					</div>
+				</div >
+				<img src="img/girl.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">壹心理</p>
+					<div class="title">医学科普作者</div>
+					<div class="daily">472<br><span>文章</span>
+					</div>
+					<div class="fans">4767<br><span>粉丝</span></div>
+				</div >
+				<img src="img/girl.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">科普中国微平台</p>
+					<div class="title">医学科普作者</div>
+					<div class="daily">472<br><span>文章</span></div>
+					<div class="fans">4767<br><span>粉丝</span>
+					</div>
+				</div >
+				<img src="img/girl.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">就医160</p>
+					<div class="title">医学科普作者</div>
+					<div class="daily">472<br><span>文章</span></div>
+					<div class="fans">4767<br><span>粉丝</span></div>
+				</div >
+				<img src="img/girl.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">就医宝</p>
+					<div class="title">医学科普作者</div>
+					<div class="daily">472<br><span>文章</span></div>
+					<div class="fans">4767<br><span>粉丝</span></div>
+				</div >
+				<img src="img/girl.jpg">
+			</a>
+		</li>
+	</ul>
+</div>
+</body>
+</html>

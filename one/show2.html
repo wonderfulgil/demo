@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>hover显示</title>
+<style type="text/css">
+.pic_bottom {
+    width: 273px;
+    font-family: 'microsoft yahei';
+}
+.pic_bottom .mobile_con {
+    position: relative;
+    margin: 10px 0 0 0;
+    z-index: 999;
+}
+.pic_bottom .mobile_con span {
+    display: inline-block;
+    position: relative;
+    width: 105px;
+    padding: 0 15px;
+    line-height: 29px;
+    color: #3eb923;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    background: #fbfbfb;
+    cursor: pointer;
+    z-index: 4;
+	font-size: 12px;
+}
+.pic_bottom i {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 3px;
+    vertical-align: -3px;
+    background: url(img/ico_pic_bottom.png) no-repeat;
+}
+.pic_bottom .mobile_con i.i5 {
+    height: 15px;
+    background-position: -56px 0;
+}
+.pic_bottom .mobile_con .hide_box {
+    display: none;
+    top: 29px;
+    left: 0;
+    padding: 10px;
+    border: 1px solid #ebebeb;
+    background: #fbfbfb;
+    z-index: 3;
+}
+.pic_bottom .mobile_con .hide_box .bg {
+    width: 255px;
+    height: 120px;
+    background: url(img/ico_pic_bottom.png) no-repeat center -15px;
+}
+.pic_bottom .mobile_con .hide_box .bg img {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+}
+.pic_bottom .hov .hide_box {
+    display: block;
+}
+</style>
+</head>
+<body>
+<div class="pic_bottom">
+	<div class="mobile_con">
+		<span><i class="i5"></i>立即穿越到手机</span>
+		<div class="hide_box">
+			<div class="bg">
+				<img src="" width="110" height="110" alt="扫描二维码，随时随地看线路" >
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript"  src="js/jquery-1.11.3.min.js"></script>
+<script>
+    $('.mobile_con').hover(function() {
+        $(this).toggleClass('hov');
+    });
+</script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style type="text/css">
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, button, p, th, td {
+    margin: 0;
+    padding: 0;
+}
+ol, ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+em{font-style: normal;}
+
+/*起价说明*/
+.notice {
+    position: relative;
+    display: inline-block;
+    color: #999;
+    margin-left: 8px;
+    border-bottom: 1px dotted #999;
+}
+.notice .placard {
+    top: 22px;
+    left: 0px;
+    padding: 10px;
+    width: 204px;
+    line-height: 20px;
+    display: none;
+}
+.placard {
+    position: absolute;
+    top: -41px;
+    left: -18px;
+    line-height: 18px;
+    border: 1px solid #f8d3a7;
+    background: #fffedf;
+    z-index: 10;
+    color: #333;
+}
+.notice .placard p {
+    word-wrap: break-word;
+}
+.placard i {
+    position: absolute;
+    width: 9px;
+    height: 6px;
+    background: url(img/detail-icov7.png) no-repeat;
+}
+.placard i.placard-up {
+    top: -5px;
+    left: 122px;
+    background-position: -79px -160px;
+}
+
+/*活动*/
+.order {
+    border-bottom: 0;
+    padding-bottom: 5px;
+	position: relative;
+    z-index: 2;
+    padding: 5px 0 10px;
+}
+.order li {
+    padding-left: 60px;
+	line-height: 33px;
+    position: relative;
+    padding: 0 0 0 81px;
+}
+.order li label {
+    position: absolute;
+    top: 1px;
+	left: 0;
+}
+.order li span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.features .b_agio {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    margin: 8px 5px;
+}
+.order li .red{
+    border: 1px solid #f55;
+    color: #f55;
+}
+.features .e_agio_icon {
+    padding: 0 4px;
+    height: 16px;
+    position: relative;
+    z-index: 225;
+    cursor: pointer;
+}
+.features .e_agio_icon .i3 {
+    width: 13px;
+    height: 8px;
+    font: normal 1px/1px Arial,sans-serif;
+    display: none;
+    background: url(img/skin_v13.png) 0 -21px;
+    position: absolute;
+    z-index: 4;
+    top: 19px;
+    left: 50%;
+    margin-left: -6px;
+}
+.features .e_agio_icon .tips {
+    display: none;
+    position: absolute;
+    color: #333;
+    cursor: default;
+    z-index: 3;
+    top: 26px;
+    left: 0;
+    text-align: left;
+    border: 1px solid #f8d3a7;
+    background: #fffedf;
+    width: 260px;
+    padding: 10px 8px;
+    font: normal 12px/18px Arial,sans-serif;
+}
+
+.features .e_agio_icon.on .tips,.features .e_agio_icon.on .i3{
+ display: block;
+}
+
+/*承诺*/
+.promise-list .promise {
+    padding: 0 4px;
+    height: 16px;
+    display: inline-block;
+    z-index: 225;
+    cursor: pointer;
+}
+
+.promise-list .promise i.tag {
+    display: inline-block;
+    width: 13px;
+    height: 16px;
+    line-height: 0;
+    vertical-align: middle;
+    background: url(img/detail-icov7.png) no-repeat -312px 0;
+    margin-right: 4px;
+}
+.promise-list .promise .promise-tips {
+    position: relative;
+}
+.promise-list .promise .i3 {
+    width: 13px;
+    height: 8px;
+    font: normal 1px/1px Arial,sans-serif;
+    display: none;
+    background: url(img/skin_v13.png) 0 -21px;
+    position: absolute;
+    z-index: 4;
+    top: -4px;
+    left: 50%;
+    margin-left: -6px;
+}
+.promise-list .promise .tips {
+    display: none;
+    position: absolute;
+    color: #333;
+    cursor: default;
+    z-index: 3;
+    top: 3px;
+    left: 0;
+    text-align: left;
+    border: 1px solid #f8d3a7;
+    background: #fffedf;
+    width: 260px;
+    padding: 10px 8px;
+    font: normal 12px/18px Arial,sans-serif;
+}	
+.promise-list .promise.on .i3, .promise-list .promise.on .tips {
+    display: block;
+}
+.ensure {
+    padding: 10px 0 0 0;
+}
+.ensure li {
+    line-height: 27px;
+    position: relative;
+    padding: 0 0 0 81px;
+    vertical-align: middle;
+}
+.ensure li label {
+    position: absolute;
+    top: 0;
+    left:0px;
+}
+
+.placard i.placard-down {
+    bottom: -5px;
+    _bottom: -15px;
+    left: 56px;
+    background-position: -67px -160px;
+}
+
+.order li span em {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 9px;
+	color: rgb(51, 51, 51);
+    font-weight: normal;}
+.order li .division {
+    position: relative;
+    top: -1px;
+    width: 1px;
+    height: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 9px 0 0;
+    border-left: 1px solid #ccc;
+    overflow: hidden;
+}
+.order li .blue{
+    border: 1px solid #00bcd4;
+    color: #00bcd4;
+}
+ </style>
+</head>
+<body>
+
+<div class="notice js-price-notice-tip">起价说明
+	<span class="placard">
+		<span class="js-cost-description">
+			<p><strong>起价说明</strong></p>
+			<p class="js-desc-content"></p>
+		</span>
+		<span class="js-childprice-description">
+			<p><strong>儿童起价说明</strong></p>
+			<p class="js-desc-content">儿童是指身高1.2米（含1.2米）以下的儿童，含全程车费、导服及保险；免门票；不含住宿床位、用餐</p>
+		</span>
+		<i class="placard-up"></i>
+	</span>
+</div>
+<div class="order">
+	<ul>
+		<li>
+			<label>活动信息</label>
+			<div class="features">																		
+				<span class="b_agio">
+					<span class="red e_agio_icon">
+						券
+						<span class="i3"></span>
+						<i class="tips">使用代金券，可享受立减优惠（不可与本网其他优惠活动同时使用，保险订单金额不参与优惠活动）</i>
+					</span>
+				</span>
+				<span class="b_agio">
+					<span class="red e_agio_icon">
+						礼品卡
+						<span class="i3"></span>
+						<i class="tips">可使用礼品卡</i>
+					</span>
+				</span>
+				<span class="b_agio">
+					<span class="red e_agio_icon">
+						专享红包<span class="i3"></span>
+						<i class="tips">
+							使用专享红包，可享受立减优惠
+							<span class="ft9">（不可与本网其他优惠活动同时使用，保险订单金额不参与优惠活动）</span>
+						</i>
+					</span>
+				</span>
+				<span class="b_agio">
+					<span class="red e_agio_icon">
+					现金红包
+						<span class="i3"></span>
+						<i class="tips">
+							使用现金红包，可享受立减优惠
+							<span class="ft9">（不可与本网其他优惠活动同时使用，保险订单金额不参与优惠活动）</span>
+						</i>
+					</span>
+				</span>
+			</div>
+		</li>
+	</ul> 
+</div>	
+<div class="promise-list">
+    <div class="promise">
+		<em><i class="tag"></i>认证商家</em>
+		<div class="promise-tips">
+			<span class="i3"></span>
+			<div class="tips">去哪儿网认证商家资质</div>
+		</div>
+	</div>
+	<div class="promise">
+		<em><i class="tag"></i>24小时退款保证</em>
+		<div class="promise-tips">
+			<span class="i3"></span>
+			<div class="tips">在消费者与供应商达成退款共识后，经去哪儿网核实退款申请无误且材料完整，1个工作日内完成退款操作（根据银行的不同会在3-15个工作日内到账）</div>
+		</div>
+	</div>
+	<div class="promise">
+		<em><i class="tag"></i>安全交易</em>
+		<div class="promise-tips">
+			<span class="i3"></span>
+			<div class="tips">去哪儿网已经通过支付卡产业数据安全标准(PCI-DSS)，全面保护您的资金、交易安全，通过去哪儿网比线下交易更有保障更可靠</div>
+		</div>
+	</div>
+	<div class="promise">
+		<em><i class="tag"></i>铁定成团</em>
+		<div class="promise-tips">
+			<span class="i3"></span>
+			<div class="tips">一旦网上预定并付款后，不管该团期参团人数多少，肯定会发团，保障消费者可以按时出游。</div>
+		</div>
+	</div>
+	<div class="promise">
+		<em><i class="tag"></i>无自费</em>
+		<div class="promise-tips">
+			<span class="i3"></span>
+			<div class="tips">一旦网上预定并付款后，无自费项目，包括但不限于无附加费、无强迫自费项目，不收取任何特殊人群附加费。</div>
+		</div>
+	</div>
+	<div class="promise">
+		<em><i class="tag"></i>无购物</em>
+		<div class="promise-tips">
+			<span class="i3"></span>
+			<div class="tips">一旦网上预定并付款后，行程中无购物店（特殊路线除外），绝无强迫。</div>
+		</div>
+	</div>
+	<div class="promise">
+		<em><i class="tag"></i>如实描述</em>
+		<div class="promise-tips">
+			<span class="i3"></span>
+			<div class="tips">商家承诺与消费者在交易过程中利用400电话/TQ工具进行沟通时向消费者描述的内容真实有效。</div>
+		</div>
+	</div>
+	<div class="promise">
+		<em><i class="tag"></i>未验证消费 随时退</em>
+		<div class="promise-tips">
+			<span class="i3"></span>
+			<div class="tips">有效期内，未验证消费 随时退款</div>
+		</div>
+	</div>
+ </div>
+<div class="order">
+	<ul>
+		<li>
+			<label>产品编号</label>
+			<span>3292445133</span>
+		</li>
+		<li>
+			<label>行程套餐</label>
+			<span class="basic-info">
+				<em>太原-忻州、太原、山西</em>
+				<i class="division"></i><em>2天1晚 </em>
+				<i class="division"></i><em><a href="#xlts" class="js-click-anchor">大巴往返</a></em>
+				<i class="division"></i><em><a href="#xlts" class="js-click-anchor">经济型酒店</a></em>
+				<i class="division"></i><em><a href="#xlts" class="js-click-anchor">约2个景点</a></em>
+			</span>
+		</li>
+		<li>
+			<label>产品特色</label>
+			<div class="features">																			
+					<span class="b_agio">
+						<span class="blue e_agio_icon">
+						即时确认<span class="i3"></span>
+						<i class="tips">本产品价格、团期等信息已经过核实，在您完成付款签约后，即可出游</i>
+						</span>
+					</span>
+			</div>		
+		</li>
+	</ul>
+</div>	
+<script type="text/javascript"  src="js/jquery-1.11.3.min.js"></script>
+	<script>
+    //hover 时加一个class,常见的例子，hover鼠标悬浮效果
+    function hover_class(control, class1) {
+        $(control).hover(function() {
+            $(this).addClass(class1)
+        }, function() {
+            $(this).removeClass(class1)
+        });
+    }
+    //hover 时父元素下的某一元素显示,常见的例子，hover遮罩
+    function hover_show(control, hideBox) {
+        $(control).hover(function() {
+            $(this).find(hideBox).show();
+        }, function() {
+            $(this).find(hideBox).hide();
+        });
+    }
+
+    hover_show(".js-price-notice-tip", ".placard");
+    hover_class(".promise", "on");
+    hover_class(".e_agio_icon", "on");
+    hover_show(".js-sold-count-tip", ".placard");
+</script>  

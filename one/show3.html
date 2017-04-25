@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>hover显示</title>
+<style type="text/css">
+ .order_qrcode {
+    position: relative;
+}
+.order_qrcode_btn {
+    border: 1px solid #ccc;
+    background: #fff;
+    height: 41px;
+    padding: 0 10px;
+    font: normal normal 14px/41px "microsoft yahei";
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+.icon_qrcode {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    background: url("img/u_order_qrcode.png") -8px -3px no-repeat;
+    width: 16px;
+    height: 16px;
+}
+.icon_arrow {
+    position: absolute;
+    bottom: 4px;
+    left: 43px;
+    width: 9px;
+    height: 5px;
+    background: url("img/u_order_qrcode.png") -32px -11px no-repeat;
+}
+.order_qrcode:hover .icon_arrow {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 0.5s;
+    -moz-transition: -moz-transform 0.5s;
+    -ms-transition: -ms-transform 0.5s;
+    -o-transition: -o-transform 0.5s;
+    transition: transform 0.5s;
+}
+.dropdown_panel {
+    position: absolute;
+    font: normal normal 14px/22px "microsoft yahei";
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 209px;
+    display: none;
+    z-index: 1;
+    top: 41px;
+    left: 0px;
+    text-align: center;
+    padding: 10px 0;
+}
+.order_note {
+    color: #999;
+    margin: 10px 0;
+}
+.order_qrcode:hover .dropdown_panel {
+    display: block;
+}
+.order_qrcode:hover .order_qrcode_btn {
+    border-bottom-color: #fff;
+}
+.order_qrcode .qrcode_img {
+    width: 187px;
+    height: 187px;
+}
+</style>
+</head>
+<body>
+<div class="order_qrcode">
+	<div class="order_qrcode_btn  ">
+		<span>扫码预订</span>
+		<i class="icon_qrcode"></i>
+		<i class="icon_arrow"></i>
+	</div>
+	<div class="dropdown_panel">
+		<p class="order_info"></p>
+		<p class="order_info"></p>
+		<p class="order_note">APP扫码预订</p>
+		<img src="" class="qrcode_img">
+	</div>
+</div>
+</body>
+</html>
+
+
+
+

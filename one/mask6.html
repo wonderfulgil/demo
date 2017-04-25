@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>hover一行</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+   
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+img{border:0;}
+
+
+
+.siderbar_list{
+	width: 1020px;
+	margin: auto;
+}
+.siderbar_list ul {
+    width: 1026px;
+    margin-left: -3px;
+	overflow: hidden;
+}
+.siderbar_list h2{
+	line-height: 20px;
+    font-size: 18px;
+    color: #666;
+    border-left: #ff6600 solid 5px;
+    padding-left: 10px;
+    width: 234px;
+	font-family: "Helvetica Neue",Helvetica,"Avenir Next",Avenir,"Lantinghei SC","Hiragino Sans GB","Microsoft YaHei",微软雅黑,STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+}
+
+.siderbar_list li{
+	float:left;
+	position:relative;
+	width: 180px;
+    height: 180px;
+	margin: 3px;
+	overflow: hidden;
+}
+.siderbar_list li a{
+	width: 180px;
+    height: 180px;
+    display: inline-block;
+	text-align: center;
+}
+.siderbar_list li img {
+    width: 100%;
+    height: 180px;
+}
+
+.siderbar_list li .mask {
+    position: absolute;
+    left: 0;
+	bottom: -50px;
+	width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: #fff;
+	font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+     transition: all .3s;
+}
+.siderbar_list li .mask span{
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.siderbar_list li:hover .mask {
+	bottom: 0;	
+}
+</style>
+</head>
+<body>
+<div class="siderbar_list">
+	<h2>热门机构</h2>
+	<ul>
+		<li>
+			<a href="">
+				<div class="mask">
+					<span>《大科技》杂志</span>
+				</div >
+				<img src="img/girl.jpg">
+			
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">壹心理</p>
+				</div >
+				<img src="img/girl.jpg">
+				
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">科普中国微平台</p>
+				</div >
+				<img src="img/girl.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">就医160</p>
+				</div >
+				<img src="img/girl.jpg">
+				
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">大五人格</p>
+				</div >
+				<img src="img/girl.jpg">
+				
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">怪罗科普</p>
+				</div >
+				<img src="img/girl.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">擎趣CLUB</p>
+				</div >
+				<img src="img/girl.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<div class="mask">
+					<p class="name">就医宝</p>
+				</div >
+				<img src="img/girl.jpg">
+			</a>
+		</li>
+	</ul>
+</div>
+</body>
+</html>
