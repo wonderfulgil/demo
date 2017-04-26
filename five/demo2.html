@@ -252,21 +252,14 @@
 
 
         //点击全选文字实现全选功能
-        /*点击全选选中所有checkbox，颜色变化字体变化，再次点击恢复原状*/ 
-        music_checkAll.onclick=function(){
-            SelectAll(this.parentNode.getElementsByTagName("input")[0]);
-        } 
-
         //点击全选文字前的checkbox实现全选功能
-        /*点击全选选中所有checkbox，颜色变化字体变化，再次点击恢复原状*/
-        checkAll_input.onclick=function(){
-            SelectAll(this);
-        } 
+        music_checkAll.onclick= SelectAll;
+        checkAll_input.onclick=SelectAll;
 
         //全选功能函数
-        function SelectAll(a){
+        function SelectAll(){
            if(flag){//如果全选没有被选中
-                a.checked = true;
+                checkAll_input.checked = true;
                 num=box_li.length;
                 for(i=0;i<box_li.length;i++){
                     box_li[i].children[0].checked = true;
@@ -276,9 +269,9 @@
                 
             }
             else{//如果全选被选中
-                a.checked = false;
+                checkAll_input.checked = false;
                 num=0;
-                for(i=0;i<box_li.length;i++){//遍历内容项
+                for(i=0;i<box_li.length;i++){
                     box_li[i].children[0].checked = false;
                     box_li[i].style.color="#333";
                     if(i%2){     
@@ -287,11 +280,11 @@
                     else{
                         box_li[i].style.background="#fff";
                     }
-                };
-                
+                };  
             }
             flag=!flag; 
         };
+
 
         //批量删除
         music_delet.onclick=deletion;
@@ -303,9 +296,8 @@
                 ids += box_li[i].children[0].value + ",";         
               }
             }
-            //去掉字符串末尾的‘,'
             ids=ids.substring(0, ids.length-1);
-            if(ids==""){  // 判断是否至少选择一项 
+            if(!num){  
                 alert("请选择要删除的记录");  
                 return;
             }else{ // 批量选择  
@@ -315,7 +307,7 @@
                         box_li[i].parentNode.removeChild(box_li[i]); 
                         i--;//注意删除一行i的值也要变化   
                       }
-                    } 
+                    }
                     //注意删除所有行后把全选勾选取消，flag初始化
                     if(!flag) {  
                        checkAll_input.checked = false;
@@ -323,9 +315,18 @@
                     } 
                     alert("删除成功");
                     num=0;//num初始化
+                    //重新设置隔行变色
+                    for(i=0;i<box_li.length;i++){ 
+                      box_li[i].style.color="#333";
+                        if(i%2){     
+                            box_li[i].style.background="#f3b3c0";
+                        }
+                        else{
+                            box_li[i].style.background="#fff";
+                        }
+                    }
                 }  
             }
-
         } 
 </script>      
 </body>
