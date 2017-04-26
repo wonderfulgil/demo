@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkbox全选反选删除</title>
+    <style>
+        a {
+            text-decoration: none;
+            color:#333;
+        }
+        ul{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        input,button{
+            background:none;
+            outline:none;
+            border:none;
+            margin: 0;
+            padding: 0
+        }
+        .clearfix:before,.clearfix:after{
+            display: block;
+            content:"";
+        }
+        .clearfix:after{
+            clear:both;
+        }
+        .clearfix{
+            zoom:1;
+        }
+        .homework{
+            width:758px;
+            margin:0 auto;
+            line-height: 30px;
+        }
+        .homework h2{
+            text-align: center;
+        }
+        .code_box{
+            width: 758px;
+            padding:40px 0;
+            background:#543145;
+
+        }
+        .music_box{
+            width: 470px;
+            margin: 0 auto;
+            font-size: 14px;
+            color: #333;
+            background: #fff;
+            border-radius: 10px;
+            -o-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -moz-border-radius: 10px;
+         }
+         .box{
+            padding:24px 0;
+        }
+
+        .box li{
+            line-height:50px;
+            height:42px;
+            padding:0 30px;
+            overflow: hidden;
+            color:#333;
+        }
+        .box li span{
+            margin-left: 16px;
+        }
+        .box li span.singer_name{
+            float: right;
+        }
+        .caozuo{
+            background: #de4a63;
+            height:50px;
+            line-height: 50px;
+            padding:0 30px;
+            -o-border-radius:0 0 10px 10px;
+            -webkit-border-radius:0 0 10px 10px;
+            -ms-border-radius:0 0 10px 10px;
+            -moz-border-radius:0 0 10px 10px;
+        }
+        .box li:nth-child(2n){
+            background: #f3b3c0
+        }
+        .caozuo li{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 34px;
+        }
+        .caozuo li input{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .caozuo li span{
+            display: inline-block;
+            width:28px;
+            height: 28px;
+            vertical-align: middle;
+            margin-right: -12px;
+            cursor: pointer;
+        }
+        .caozuo li a{
+            margin-left:14px;
+            padding:0 2px;
+            display: inline-block;
+            vertical-align: middle;
+            color:#fff;
+        }
+        .caozuo li span.collect{
+            background: url("img/heart.png") no-repeat;
+        } 
+        .caozuo li span.addition{
+            background: url("img/add.png") no-repeat;
+        }
+        .caozuo li span.delet{
+            background: url("img/delet.png") no-repeat;
+        }  
+    </style>
+<body>  
+<div class="homework">
+    <h2>checkbox全选反选删除</h2>
+    <div class="code">
+        <div class="title">代码：</div>
+        <div class="code_box">
+            <div class="music_box" id="music_box">
+                <ul id="box" class="box">
+                    <li>
+                        <input type="checkbox" value="0">
+                        <span class="music_name">泡沫</span>
+                        <span class="singer_name">邓紫棋</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" value="1">
+                        <span class="music_name">说爱你</span>
+                        <span class="singer_name">蔡依林</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" value="2">
+                        <span class="music_name">稻香</span>
+                        <span class="singer_name">周杰伦</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" value="3">
+                        <span class="music_name">我的梦</span>
+                        <span class="singer_name">张靓颖</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" value="4">
+                        <span class="music_name">无处安放</span>
+                        <span class="singer_name">白若溪</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" value="5">
+                        <span class="music_name">怎么说我不爱你</span>
+                        <span class="singer_name">萧敬腾</span>
+                    </li>
+                </ul>
+                <ul id="caozuo" class="caozuo">
+                    <li>
+                        <input type="checkbox">
+                        <a href="javascript:;" class="music_button" id="music_checkAll">全选</a>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <a href="javascript:;" class="music_button" id="seclect_reverse">反选</a>
+                    </li>
+                    <li>
+                        <span class="addition"></span>
+                        <a href="javascript:;" class="music_button" id="music_addition">添加</a>
+                    </li>
+                    <li>
+                        <span class="delet"></span>
+                        <a href="javascript:;" class="music_button" id="music_delet">删除</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function $(id){
+            return typeof id==='string'?document.getElementById(id):id;
+        }
+        var box=$('box');
+        var box_li=$('box').getElementsByTagName("li");
+        var music_checkAll=$('music_checkAll');
+        var checkAll_input= music_checkAll.parentNode.getElementsByTagName("input")[0];
+        var music_delet= $('music_delet');
+        var del_span= music_delet.parentNode.getElementsByTagName("span")[0];
+        var seclect_reverse= $('seclect_reverse');
+        var reverse_input= seclect_reverse.parentNode.getElementsByTagName("input")[0];
+        var flag=true; //表示全选没有被选中
+        var clicknum=1;
+        var num=0;//num为设置的选中的内容项的chockbox的个数
+        var ids="";
+
+        /*点击checkbox，颜色变化字体变化，再次点击恢复原状*/
+        /*点击li选中checkbox，颜色变化字体变化，再次点击恢复原状*/
+        for(i=0;i<box_li.length;i++){
+            box_li[i].index=i;    
+            box_li[i].children[0].onclick=function(){
+                check(this.parentNode,this);
+            }
+        }
+        for(i=0;i<box_li.length;i++){
+            box_li[i].index=i;    
+            box_li[i].onclick=function(){
+                check(this,this.children[0]);
+            }
+        }
+        //单项选中功能函数
+        function check(a,b){
+            var j=a.index;
+            if(b.checked){
+                b.checked = false;
+                a.style.color="#333";
+                if(j%2){     
+                    a.style.background="#f3b3c0"; 
+                }
+                else{   
+                    a.style.background="#fff";
+                }
+                num--;
+            }else{
+                b.checked = true;
+                a.style.background="#de4a63"; 
+                a.style.color="#fff"; 
+                num++;
+
+            }
+         //当checkbox全选时，操作的全选checkbox也要勾选
+            if(num==box_li.length) {
+                checkAll_input.checked = true;
+                flag=false;
+            }
+            else{
+                checkAll_input.checked = false;
+                flag=true;
+            }
+        }
+
+
+        //点击全选文字实现全选功能
+        //点击全选文字前的checkbox实现全选功能
+        music_checkAll.onclick= SelectAll;
+        checkAll_input.onclick=SelectAll;
+
+        //全选功能函数
+        function SelectAll(){
+           if(flag){//如果全选没有被选中
+                checkAll_input.checked = true;
+                num=box_li.length;
+                for(i=0;i<box_li.length;i++){
+                    box_li[i].children[0].checked = true;
+                    box_li[i].style.background="#de4a63"; 
+                    box_li[i].style.color="#fff";   
+                };
+                
+            }
+            else{//如果全选被选中
+                checkAll_input.checked = false;
+                num=0;
+                for(i=0;i<box_li.length;i++){
+                    box_li[i].children[0].checked = false;
+                    box_li[i].style.color="#333";
+                    if(i%2){     
+                        box_li[i].style.background="#f3b3c0";
+                    }
+                    else{
+                        box_li[i].style.background="#fff";
+                    }
+                };  
+            }
+            flag=!flag; 
+        };
+
+        //反选
+        seclect_reverse.onclick=SelectRecerse;
+        reverse_input.onclick=SelectRecerse;
+
+        function SelectRecerse(){  
+            for(i=0;i<box_li.length;i++){
+                if(box_li[i].children[0].checked==true){
+                    box_li[i].children[0].checked=false;
+                    box_li[i].style.color="#333";
+                    if(i%2){     
+                        box_li[i].style.background="#f3b3c0";
+                    }
+                    else{
+                        box_li[i].style.background="#fff";
+                    }
+                    num--;
+                    checkAll_input.checked = false;
+                    flag=true;
+                }else{
+                    box_li[i].children[0].checked=true;
+                    box_li[i].style.background="#de4a63"; 
+                    box_li[i].style.color="#fff";  
+                    num++;
+                    if(num==box_li.length) {
+                        checkAll_input.checked = true;
+                        flag=false;
+                    }
+                }
+            }
+            if(clicknum%2){
+               reverse_input.checked=true;
+            }else{
+               reverse_input.checked=false;  
+            }
+            clicknum++;
+        }
+
+
+        //批量删除
+        music_delet.onclick=deletion;
+        del_span.onclick=deletion;
+
+        function deletion(){
+            for(i=0;i<box_li.length;i++){
+              if(box_li[i].children[0].checked) {
+                ids += box_li[i].children[0].value + ",";         
+              }
+            } 
+            ids=ids.substring(0, ids.length-1);
+            if(!num){  
+                alert("请选择要删除的记录");  
+                return;
+            }else{ 
+                if(window.confirm("确定删除所选记录？")) {  
+                    for(i=0;i<box_li.length;i++){ 
+                      if(box_li[i].children[0].checked) {  
+                        box_li[i].parentNode.removeChild(box_li[i]); 
+                        i--;//注意删除一行i的值也要变化   
+                      }
+                    }
+                    //注意删除所有行后把全选勾选取消，flag初始化
+                    if(!flag) {  
+                       checkAll_input.checked = false;
+                       flag=true; 
+                    } 
+                    alert("删除成功");
+                    num=0;//num初始化
+                    clicknum=1;//clicknum初始化
+                    reverse_input.checked=false; 
+                    //重新设置隔行变色
+                    for(i=0;i<box_li.length;i++){ 
+                      box_li[i].style.color="#333";
+                        if(i%2){     
+                            box_li[i].style.background="#f3b3c0";
+                        }
+                        else{
+                            box_li[i].style.background="#fff";
+                        }
+                    }
+                }  
+            }
+        } 
+</script>      
+</body>
+</html>
