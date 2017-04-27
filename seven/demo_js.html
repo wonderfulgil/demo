@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js函数传参选项卡</title>
+<style>
+	body,ul,li{
+		padding:0;
+		margin:0;
+	}
+	a{
+		text-decoration:none;
+	}
+	li{
+		list-style:none;
+	}
+	.tab{
+		width:500px;
+		height:20px;
+	}
+	.tab li{
+		float:left;
+	}
+	.tab a{
+		width:98px;
+		height:20px;
+		border:1px solid #eee;
+		display:inline-block;
+		line-height:20px;
+		text-align:center;
+		color:#333;
+	}
+	.tab li a:hover,.tab li a.on{
+		background:red;
+		color:#ffffff;
+	}
+	.tabcont{
+		width:498px;
+		height:200px;
+		border:1px solid #eee;
+	}
+	.tabcont li{
+		display:none;
+		width:498px;
+		height:500px;
+	}
+	
+</style>
+</head>
+<body>
+<ul class="tab" id="tab">
+	<li><a href="javascript:;">tab1</a></li>
+	<li><a href="javascript:;">tab2</a></li>
+	<li><a href="javascript:;">tab3</a></li>
+	<li><a href="javascript:;">tab4</a></li>
+	<li><a href="javascript:;">tab5</a></li>
+</ul>
+<ul class="tabcont" id="tabcont">
+	<li>tab1</li>
+	<li>tab2</li>
+	<li>tab3</li>
+	<li>tab4</li>
+	<li>tab5</li>
+</ul>
+<script type="text/javascript">
+	function tab(control, show,state){
+		var tab=document.getElementById(control);
+		var tabtit=tab.getElementsByTagName("a");
+		var cont=document.getElementById(show);
+		var conttit=cont.getElementsByTagName("li");
+		var tabnum=tabtit.length;
+		
+		for(i=0;i<tabnum;i++){
+			tabtit[i].index=i;
+			tabtit[i][state]=function() {
+				var j=this.index;
+				for(i=0;i<tabnum;i++){
+				   tabtit[i].className="";
+				   conttit[i].style.display = 'none'; 
+				}
+				this.className="on";
+				conttit[j].style.display = 'block'; 			
+			}				
+		}
+		tabtit[0].setAttribute("class", "on");
+		conttit[0].style.display = 'block'; 	
+	}
+	tab("tab","tabcont","onmouseover")//调用函数	
+</script>
+</body>
+</html>
+
+
