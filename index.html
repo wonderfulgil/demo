@@ -23,9 +23,6 @@
       background:#75bdf7;
       margin-bottom:1px;
     }
-    li:hover ul {
-      display: block;
-    }
     li li {
       list-style: circle;
       list-style-position: inside;
@@ -68,9 +65,9 @@
 </head>
 <body>
     <h1>业余demo</h1>
-    <ul>
+    <ul class="demo">
       <li>
-      <h4>第一课时(32)</h4>
+        <h4>第一课时(32)</h4>
         <ul>
           <li><a href="https://wonderfulgil.github.io/demo/one/demo3.html">1)css鼠标hover效果-透明度变化1</a></li>
           <li><a href="https://wonderfulgil.github.io/demo/one/demo4.html">2)css鼠标hover效果-透明度变化2</a></li>
@@ -126,9 +123,9 @@
       <li>
         <h4>第五课时(3)</h4> 
         <ul>
-          <li><a href="https://wonderfulgil.github.io/demo/five/baidu_music.html">4)checkbox全选</a></li>
-          <li><a href="https://wonderfulgil.github.io/demo/five/demo2.html">5)checkbox全选删除</a></li>
-          <li><a href="https://wonderfulgil.github.io/demo/five/demo3.html">6)checkbox全选反选删除</a></li>   
+          <li><a href="https://wonderfulgil.github.io/demo/five/baidu_music.html">1)checkbox全选</a></li>
+          <li><a href="https://wonderfulgil.github.io/demo/five/demo2.html">2)checkbox全选删除</a></li>
+          <li><a href="https://wonderfulgil.github.io/demo/five/demo3.html">3)checkbox全选反选删除</a></li>   
         </ul>      
       </li>
       <li>
@@ -149,8 +146,8 @@
         <h4>第七课时(3)</h4>
         <ul>
           <li><a href="https://wonderfulgil.github.io/demo/seven/demo_js.html">1)基本选项卡</a></li>
-          <li><a href="https://wonderfulgil.github.io/demo/seven/">1)延迟切换选项卡</a></li>
-          <li><a href="https://wonderfulgil.github.io/demo/seven/">1)自动轮换选项卡</a></li>
+          <li><a href="https://wonderfulgil.github.io/demo/seven/">2)延迟切换选项卡</a></li>
+          <li><a href="https://wonderfulgil.github.io/demo/seven/">3)自动轮换选项卡</a></li>
         </ul> 
       </li>
       <li>
@@ -168,12 +165,18 @@
       <h4>第九课时(5)</h4>
         <ul>
           <li><a href="https://wonderfulgil.github.io/demo/nine/demo_js.html">1)导航1效果</a></li>
-          <li><a href="https://wonderfulgil.github.io/demo/nine/demo_js.html">1)导航效果2</a></li>
-          <li><a href="https://wonderfulgil.github.io/demo/nine/demo_js.html">1)横向导航滚动高亮</a></li>
-          <li><a href="https://wonderfulgil.github.io/demo/nine/subnav.html">1)某一区域滚动高亮</a></li>
+          <li><a href="https://wonderfulgil.github.io/demo/nine/demo_js.html">2)导航效果2</a></li>
+          <li><a href="https://wonderfulgil.github.io/demo/nine/demo_js.html">3)横向导航滚动高亮</a></li>
+          <li><a href="https://wonderfulgil.github.io/demo/nine/subnav.html">4)某一区域滚动高亮</a></li>
         </ul> 
       </li>        
-   </ul>   
+   </ul>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script>
+  $(".demo li").click(function(){
+      $(this).find("ul").slideToggle(300).closest("li").siblings("li").find("ul").slideUp(300);
+  })
+</script>   
 </body>
 </html>
 
