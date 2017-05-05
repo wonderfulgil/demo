@@ -1,0 +1,228 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="utf-8">
+<title>手风琴2</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+
+.siderbar_list{
+	 width: 222px;
+	 overflow:hidden;
+	 border:1px solid #ddd;
+}
+.siderbar_list h2{
+	font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 8px;
+    font-weight: normal;
+	background:#eee;
+}
+
+.siderbar_list li{
+	position: relative;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+	cursor:pointer;
+}
+
+.list li{
+	border-bottom:1px dotted #eee;
+	padding:0 10px;
+	cursor:pointer;
+}
+.siderbar_list .number{
+    width: 18px;
+    height: 18px;
+    line-height: 16px;
+	text-align: center;
+    background: #f93867;
+    color: #FFF;
+    font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+    text-shadow: 1px 1px #666;
+    box-shadow: 0 0 2px #f93867;
+	-moz-box-shadow: 0 0 2px #f93867;
+	-webkit-box-shadow: 0 0 2px #f93867;
+	position: absolute;
+    left: 6px;
+    top: 10px;
+}
+.siderbar_list .list_tit {
+    padding-left: 35px;
+    font-size: 12px; 
+    display: inline-block;
+	height: 30px;
+    line-height: 30px;
+	width: 187px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.siderbar_list li dl{
+	display: none; 
+    width: 210px;
+    margin: 0 auto;
+	padding-top: 10px;
+    overflow: hidden;
+}
+.siderbar_list  li:hover {
+    background: #ffeeec;
+}
+.siderbar_list li.on dl{
+   display:block;
+}
+.siderbar_list li.on .list_tit{
+   display:none;
+}
+.top dt,.top dd{
+	display:inline-block;
+}
+.top dt{
+	width: 100px;
+    height: 68px;
+    padding-right: 10px;
+}
+.top dd{
+	width: 80px;
+    height: 68px;
+    vertical-align: top;
+    overflow: hidden;
+}
+.top dd h3 a{
+	width: 80px;
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.top dd p{
+	font-size:12px;
+}
+.top dd p i,.top dd p em{
+	color:#f93867;
+}
+</style>
+</head>
+<body>
+<div class="siderbar_list">
+	<h2>线路热卖推荐</h2>
+	<ul>
+		<li class="on">
+			<p class="number">1</p>
+			<a href="" target="_blank" class="list_tit">泰超值-曼谷、芭提雅8日</a>
+			<dl class="top">
+				<dt>
+					<a href="" target="_blank">
+					  <img alt=" " src="" width="100" height="68">
+					</a>
+				</dt>
+				<dd>
+					<h3><a href="" target="_blank">泰超值-曼谷、芭提雅8日 </a></h3>
+					<p><em>￥28</em>起</p>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<p class="number">2</p>
+			<a href="" target="_blank" class="list_tit">云南海南-昆明 石林 大理 丽江 西双版纳 海口 兴隆 三亚15日</a>
+			<dl class="top">
+				<dt>
+					<a href="" target="_blank">
+					  <img alt="云南海南-昆明 石林 大理 丽江 西双版纳 海口 兴隆 三亚15日 " src="" width="100" height="68">
+					</a>
+				</dt>
+				<dd>
+					<h3><a href="" target="_blank">云南海南-昆明 石林 大理 丽江 西双版纳 海口 兴隆 三亚15日 </a></h3>
+					<p><em>￥28</em>起</p>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<p class="number">3</p>
+			<a href="" target="_blank" class="list_tit">尊享·海桂-海口 兴隆 三亚 北海 桂林 阳朔9日</a>
+			<dl class="top">
+				<dt>
+					<a href="" target="_blank">
+					  <img alt="尊享·海桂-海口 兴隆 三亚 北海 桂林 阳朔9日 " src="" width="100" height="68">
+					</a>
+				</dt>
+				<dd>
+					<h3><a href="" target="_blank">尊享·海桂-海口 兴隆 三亚 北海 桂林 阳朔9日 </a></h3>
+					<p><em>￥28</em>起</p>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<p class="number">4</p>
+			<a href="" target="_blank" class="list_tit">印象·海桂-海口 兴隆 三亚 北海 桂林 阳朔9日</a>
+			<dl class="top">
+				<dt>
+					<a href="" target="_blank">
+					  <img alt="印象·海桂-海口 兴隆 三亚 北海 桂林 阳朔9日" src="" width="100" height="68">
+					</a>
+				</dt>
+				<dd>
+					<h3><a href="" target="_blank">印象·海桂-海口 兴隆 三亚 北海 桂林 阳朔9日 </a></h3>
+					<p><em>￥28</em>起</p>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<p class="number">5</p>
+			<a href="" target="_blank" class="list_tit">陕西江西-西安 华山 兵马俑 延安 井冈山 景德镇 婺源 庐山16日</a>
+			<dl class="top">
+				<dt>
+					<a href="" target="_blank">
+					  <img alt="" src="" width="100" height="68">
+					</a>
+				</dt>
+				<dd>
+					<h3><a href="" target="_blank">陕西江西-西安 华山 兵马俑 延安 井冈山 景德镇 婺源 庐山16日</a></h3>
+					<p><em>￥28</em>起</p>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<p class="number">6</p>
+			<a href="" target="_blank" class="list_tit">四川青海-兰州 川主寺 九寨沟 牟尼沟 青海湖 塔尔寺 中卫12日</a>
+			<dl class="top">
+				<dt>
+					<a href="" target="_blank">
+					  <img alt="四川青海-兰州 川主寺 九寨沟 牟尼沟 青海湖 塔尔寺 中卫12日 " src="" width="100" height="68">
+					</a>
+				</dt>
+				<dd>
+					<h3><a href="" target="_blank">四川青海-兰州 川主寺 九寨沟 牟尼沟 青海湖 塔尔寺 中卫12日 </a></h3>
+					<p><em>￥28</em>起</p>
+				</dd>
+			</dl>
+		</li>
+	</ul>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+ $('.siderbar_list li').hover(function(){
+  	$(this).addClass('on').siblings('li').removeClass('on');
+});
+</script>
+</body>
+</html>

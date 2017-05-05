@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>展开收起</title>
+<style type="text/css">
+	body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+	}
+	ul, ol, li {
+	    list-style: none;
+	    margin: 0;
+	    padding: 0;
+	}
+	.clearfix{zoom:1;}/*IE/7/6*/
+	.clearfix:before,.clearfix:after{display:table;content:" "}
+	.clearfix:after{clear:both}
+	i, em {
+    font-style: normal;
+	}
+	a {
+	    font-size: 12px;
+	    color: #333333;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+	a:hover {
+	    color: #f93867;
+	}
+
+	.order_type {
+		width: 920px;
+	    padding: 5px 15px;
+	    line-height: 24px;
+	    border-bottom: 3px solid #f93;
+	    background: #f8f8f8;
+	    z-index: 2;
+	    position: relative;
+	}
+	.order_type span.more_show {
+	    float: right;
+	    cursor: pointer;
+	}
+	.order_type a {
+	    color: #0099d9;
+	    font-size: 14px;
+	}	
+	.order_type .hide_box {
+	    display: none;
+	    position: absolute;
+	    top: 38px;
+	    left: 0;
+	    width: 918px;
+	    padding: 10px 15px;
+	    border: 1px solid #f93;
+	    border-top: 0 none;
+	    background: #f8f8f8;
+	}
+	.hide_box dl {
+	    line-height: 20px;
+	    padding: 5px 0;
+	    font-size: 14px;
+	    color: #666;
+	    overflow: hidden;
+	}
+	.hide_box dl dt {
+	    width: 100px;
+	    float: left;
+	    text-align: right;
+	}
+	.hide_box dl dd {
+	    width: 800px;
+	    float: left;
+	    padding-left: 5px;
+	}
+	.hide_box dd i, .hide_box dd em {
+    	padding: 0 5px;
+    }
+	.order_type span.more_show s {
+	    display: inline-block;
+	    border-width: 4px 4px 0 4px;
+	    border-color: #0099d9 transparent transparent transparent;
+	    border-style: solid dashed dashed dashed;
+	    width: 0;
+	    height: 0;
+	    line-height: 0;
+	    font-size: 0;
+	    vertical-align: middle;
+	    margin-left: 10px;
+	}
+	.order_type span.more_show s.show {
+	    border-width: 0 4px 4px 4px;
+	    border-color: transparent transparent #0099d9 transparent;
+	    border-style: dashed dashed solid dashed;
+	}
+</style>
+</head>
+<body>
+<div class="order_type">
+	<span class="more_show">订单详情<s class=""></s></span>
+	预订产品:<a href="#" title="【中秋】[韩国首尔-济州岛5日游]">【中秋】[韩国首尔-济州岛5日游]</a>
+	<div class="hide_box" style="display: none;">
+		<dl>
+			<dt>订单编号：</dt>
+			<dd>6112542828</dd>               
+		</dl>
+		<dl>
+			<dt>出发日期：</dt>
+			<dd>2016-12-12</dd>                
+		</dl>
+		<dl>
+			<dt>出游人数：</dt>
+			<dd><em>1</em>成人<i>×</i><em>248</em>元/成人<br><em>0</em>儿童<i>×</i><em>200</em>元/儿童</dd> 
+		</dl>
+		<dl>
+			<dt>订单金额：</dt>
+			<dd>248元</dd>               
+		</dl>
+		<dl>
+			<dt>联系人：</dt>
+			<dd>王延申</dd>              
+		</dl>
+		<dl>
+			<dt>手机号码：</dt>
+			<dd>18715269785</dd>             
+		</dl> 
+	</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	$(".more_show").click(function(){
+		if($(this).siblings(".hide_box").is(":hidden")){
+			$(this).siblings(".hide_box").show();
+			$(this).find("s").addClass("show")
+		}else{
+			$(this).siblings(".hide_box").hide();
+			$(this).find("s").removeClass("show")
+		}
+	});
+</script>
+</body>
+</html>

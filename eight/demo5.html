@@ -1,0 +1,86 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="utf-8">
+<title>鼠标移过，改变图片路径</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+
+.smallpic{
+	width: 1000px;
+	margin: 40px auto;
+}
+
+#imgPreviewContainer {
+    background:#95959d;
+    border: 1px solid #dadade;
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+    z-index: 999;
+	position:absolute;
+}
+#imgPreviewContainer img {
+	width:100%;
+    max-height: 450px;
+    max-width: 600px;
+    _height: 300px;
+    _width: 400px;
+}
+
+</style>
+</head>
+<body>
+<div class="smallpic">
+	<img src="img/50fa8ecf_w320_h240_c1_t0.jpg" width="206" height="154" alt="" title="">
+	<img src="img/189f8805ffc147633db8bae4c9f779e2_w320_h240_c1_t0.jpg" width="206" height="154" alt="" title="">
+	<img src="img/50fa8ecf_w320_h240_c1_t0.jpg" width="206" height="154" alt="" title="">
+	<img src="img/189f8805ffc147633db8bae4c9f779e2_w320_h240_c1_t0.jpg" width="206" height="154" alt="" title="">
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+ function imgPreview(a, b) {
+    var c;
+    c = $("#imgPreviewContainer").get(0) ? $("#imgPreviewContainer") : $("<div/>").attr("id", "imgPreviewContainer").append("<img/>").hide().css("position", "absolute").appendTo("body");
+    var d = $("img", c)
+      , e = a.find("img[" + b + "]");
+    e.on("mousemove", function(a) {
+        var b = $(window).width() - c.width() - 50
+          , d = a.pageX > b ? b : a.pageX + 10;
+        c.css({
+            top: a.pageY + 10,
+            left: d,
+            zIndex: 99
+        })
+    }).hover(function() {
+        var a = $(this);
+        c.show(),
+        d.load(function() {
+            d.show().animate({
+                opacity: 1
+            }, 300)
+        }).attr("src", a.attr(b))
+    }, function() {
+        c.hide(),
+        d.unbind("load").attr("src", "").hide().stop().css({
+            opacity: 0
+        })
+    })
+}
+imgPreview($(".smallpic"), "src");
+</script>
+</body>
+</html>

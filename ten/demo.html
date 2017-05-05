@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>展开收起</title>
+<style type="text/css">
+	body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+	}
+	ul, ol, li {
+	    list-style: none;
+	    margin: 0;
+	    padding: 0;
+	}
+	.clearfix{zoom:1;}/*IE/7/6*/
+	.clearfix:before,.clearfix:after{display:table;content:" "}
+	.clearfix:after{clear:both}
+	i, em {
+    font-style: normal;
+	}
+	a {
+	    font-size: 12px;
+	    color: #333333;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+	a:hover {
+	    color: #f93867;
+	}
+
+	.boder_xssj {
+	    display: inline-block;
+	    border-width: 0 4px 4px 4px;
+	    border-color: transparent transparent #130202 transparent;
+	    border-style: dashed dashed solid dashed;
+	    width: 0;
+	    height: 0;
+	    line-height: 0;
+	    font-size: 0;
+	    vertical-align: middle;
+	}
+	.hotel_room{
+		width:930px;
+		margin:60px auto;
+	}
+	.room_pic {
+	    float: left;
+	    width: 88px;
+	    height: 80px;
+	}
+	.room_pic img {
+	width: 88px;
+	height: 80px;
+	}
+	.hd_right {
+		float: right;
+		width: 100px;
+		margin-top: 10px;
+		text-align: right;
+	}
+	.room_price {
+		color: #fe8800;
+		height: 34px;
+		line-height: 34px;
+		margin-bottom: 8px;
+		font-weight:bold;
+	}
+	.room_price .num {
+		font-size: 24px;
+		margin-right: 3px;
+		vertical-align: super;
+	}
+	.room_price .text {
+		color: #999;
+		font-size: 14px;
+		vertical-align: super;
+	}
+	.room_desc {
+		margin:10px 20px 0 20px;
+		float: left;
+	}
+	.room_desc p {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	.room_desc .fangxing {
+		color: #0099d9;
+		font-size: 18px;
+	}
+	.room_facility {
+		margin-top: 15px;
+	}
+	.room_facility span {
+		color: #666;
+		margin-right: 8px;
+	}
+	.room_facility .split {
+		color: #ddd;
+	}
+	.hotel_room .boder_xssj{
+		border-width: 0 4px 4px 4px;
+		border-style: dashed dashed solid dashed;
+		border-color: transparent transparent  #0099d9 transparent;
+	}
+	.hotel_room.on .boder_xxsj{
+		border-color: #0099d9 transparent transparent transparent;
+		border-width: 4px 4px 0 4px;
+		border-style: solid dashed dashed dashed;
+	}
+	.hotel_con{
+		margin-bottom:20px;
+	}
+	.hotel_room.on .hotel_con {
+	    display: none;
+	}
+	.hotel_room.on .hotel_con {
+    display: none;
+}
+	.hotel_con li{
+	    margin: 0;
+		border-bottom: 1px solid #e6e6e6;
+	    color: #888;
+	    padding: 10px;
+		font-size: 12px;
+	}
+	.hotel_con li.top {
+		background: #f4f4f4;
+		font-size: 16px;
+	}
+	.hotel_con li span {
+	    display: inline-block;
+	    text-align: center;
+	}
+	.hotel_con li span.fangxing {
+	    width: 150px;
+	    text-align: left;
+	    padding-left: 15px;
+	}
+	.hotel_con li span.chuangxing {
+	    width: 105px;
+	    text-align: left;
+	    padding-left: 15px;
+	}
+	.hotel_con li span.canbiao {
+	    width: 105px;
+	    text-align: left;
+	    padding-left: 15px;
+	}
+	.hotel_con li span.wifi {
+	    width: 105px;
+	    text-align: left;
+	    padding-left: 15px;
+	}
+	.hotel_con li span.oldprice {
+	    width: 105px;
+	}
+	.hotel_con li span.oldprice del b {
+	    font-size: 14px;
+	    font-weight: normal;
+	}
+	.hotel_con li span.newprice {
+	    width: 180px;
+	    padding-left: 10px;
+	    text-align: left;
+	}
+	.hotel_con li span.newprice em b {
+	    padding-right: 3px;
+	    color:#f93867;
+	    font-size: 16px;
+	}
+	.hotel_con li span.newprice .sale {
+	    height: 12px;
+	    line-height: 12px;
+	    color: #f93867;
+	    padding: 0px 3px 0px 16px;
+	    margin: 4px 0px 0px 3px;
+	    border-width: 1px;
+	    border-style: solid;
+	    border-color: #f93867;
+		display: inline-block;
+	    vertical-align: middle;
+	    background: url(img/ico_home.png) no-repeat;
+	    overflow: hidden;
+		
+	}
+	.hotel_con li span.price_btn {
+	    width: 60px;
+	}
+	.hotel_con li span.price_btn a {
+	    display: inline-block;
+	    width: 60px;
+	    height: 24px;
+	    line-height: 24px;
+		-webkit-border-radius: 2px;
+	    -moz-border-radius: 2px;
+	    border-radius: 2px;
+	    box-shadow: 0 1px 0 #0099d9;
+	    color: #fff;
+	    text-align: center;
+	    background:#0099d9;
+	}
+	.hotel_con li span.price_btn a:hover {
+	    background:#058ac1;
+	    text-decoration: none;
+	}
+	.hotel_con li:hover{
+		-moz-box-shadow: none;
+	    -webkit-box-shadow:none;
+	    box-shadow:none;
+		background: #ffeeec;
+	}
+	.hotel_con li.top:hover{
+		background: #f4f4f4;
+	}	
+</style>
+</head>
+<body>
+<div class="hotel_room">
+	<div class="room_js clearfix">
+		<div class="room_pic">
+			<img src="img/room1.jpg" width="88" height="80" alt="">
+		</div>
+		<div class="room_desc">
+			<p class="fangxing">标准间</p>
+			<p class="room_facility">
+				<span>房间18-25㎡</span>
+				<span class="split">|</span> 
+				<span>大床1.8米</span>
+				<span class="split">|</span> 
+				<span>可住：2人</span>
+				<span class="split">|</span>                                    
+				<span>楼层：3-5层</span>
+			</p>
+		</div> 
+		<div class="hd_right">
+			<p class="room_price">
+				<i>￥</i><span class="num">1280</span><span class="text">起</span>
+			</p>
+			<p class="room_total"><a href="#" class="J_room_total">共1个产品<i class="boder_xssj"></i></a></p>
+		</div>
+	</div>
+	<ul class="hotel_con">
+		<li class="top">
+			<span class="fangxing">房型</span>
+			<span class="chuangxing">床型</span>
+			<span class="canbiao">餐标</span>
+			<span class="wifi">宽带</span>
+			<span class="oldprice">原价</span>
+			<span class="newprice">优惠价</span>
+			<span class="price_btn">操作</span>
+		</li>
+		<li>
+			<span class="fangxing">标准间</span>
+			<span class="chuangxing">大床/双床</span>
+			<span class="canbiao">三餐</span>
+			<span class="wifi">WIFI</span>
+			<span class="oldprice"><del>¥<b>1380</b></del></span>
+			<span class="newprice"><em><b>¥</b><b>1280</b></em>起<i class="sale">0</i></span>
+			<span class="price_btn"><a href="#">预订</a></span>
+		</li>
+		<li>
+			<span class="fangxing">标准间</span>
+			<span class="chuangxing">大床/双床</span>
+			<span class="canbiao">无</span>
+			<span class="wifi">无</span>
+			<span class="oldprice"><del>¥<b>1380</b></del></span>
+			<span class="newprice"><em><b>¥</b><b>900</b></em>起<i class="sale">0</i></span>
+			<span class="price_btn"><a href="#">预订</a></span>
+		</li>
+	</ul>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	$(".J_room_total").click(function() {
+		$(this).children(".boder_xssj").toggleClass("boder_xxsj");
+		$(this).closest(".hotel_room").toggleClass("on");
+	});
+</script>
+</body>
+</html>

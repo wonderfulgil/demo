@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>展开收起</title>
+<style type="text/css">
+	body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+	}
+	ul, ol, li {
+	    list-style: none;
+	    margin: 0;
+	    padding: 0;
+	}
+	.clearfix{zoom:1;}/*IE/7/6*/
+	.clearfix:before,.clearfix:after{display:table;content:" "}
+	.clearfix:after{clear:both}
+	i, em {
+    font-style: normal;
+	}
+	a {
+	    font-size: 12px;
+	    color: #333333;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+	a:hover {
+	    color: #f93867;
+	}
+
+	.siderbar_user {
+	    width: 224px;
+	    overflow: hidden;
+	    background: #f7f7f7;
+	    border: 1px solid #ccc;
+	    padding-top: 10px;
+	}
+	.siderbar_user .sidebar-zy {
+	    margin-bottom: 10px;
+	    padding-left: 21px;
+	    color: #f93867;
+	    font-size: 16px;
+	    display: inline-block;
+	    height: 24px;
+	    vertical-align: bottom;
+	}
+	.sidebar-zy i {
+	    background-position: -310px -64px;
+	    height: 18px;
+	    width: 21px;
+	    margin-right: 11px;
+	    vertical-align: bottom;
+	}
+	.icon_tag {
+	    display: inline-block;
+	    vertical-align: middle;
+	    background-image: url(img/icon-product.png);
+	}
+
+	.user_sidexm {
+	    border-top: 1px dashed #ccc;
+	    cursor: pointer;
+	    font-size: 14px;
+	    padding-bottom: 10px;
+	}
+	.user_sidexm dt {
+	    padding: 14px 10px 5px 25px;
+	}
+	.siderbar_user .user_sidexm .item-icon {
+	    height: 13px;
+	    width: 13px;
+	    margin-right: 15px;
+	    background-position: 0 -66px;
+	}
+	.siderbar_user .grouping-pack .item-icon {
+	    height: 13px;
+	    width: 13px;
+	    margin-right: 15px;
+	    background-position: -776px 0;
+	}
+	.user_sidexm dd a {
+	    color: #666;
+	    display: block;
+	    padding: 4px 10px 4px 53px;
+	    margin-top: 1px;
+	    font-size: 14px;
+	}
+</style>
+</head>
+<body>
+<div class="siderbar_user">
+	<a href="#" class="sidebar-zy"><i class="icon_tag"></i>我的主页</a>
+	<div class="user_sidernr">
+		<dl class="user_sidexm">
+			<dt><i class="icon_tag item-icon"></i><b>我的订单</b></dt>
+			<dd>
+				<a href="#">我的线路订单</a>
+				<a href="#">我的门票订单</a>
+				<a href="#">我的签证订单</a>
+				<a href="#">我的酒店订单</a>
+				<a href="#">我的租车订单</a>						
+			</dd>
+		</dl>
+		<dl class="user_sidexm">
+			<dt><i class="icon_tag item-icon"></i><b>账号管理</b></dt>
+			<dd>
+				<a href="#">个人资料</a>
+				<a href="#">账户安全</a>
+			</dd>
+		</dl>
+		<dl class="user_sidexm">
+			<dt><i class="icon_tag item-icon"></i><b>服务中心</b></dt>
+			<dd>	
+				<a href="#">我的咨询</a>
+				<a href="#">出游点评</a>
+			</dd>
+		</dl>
+		<dl class="user_sidexm">
+			<dt><i class="icon_tag item-icon"></i><b>会员活动</b></dt>
+			<dd>	
+				<a href="#">促销活动</a>
+			</dd>
+		</dl>
+	</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	function contentSwitch() {
+		var a = $(".siderbar_user");
+		a.find("dl").on("click", "dt",function() {
+			b = $(this).siblings("dd"),
+			c = $(this).parent(".user_sidexm");
+			c.hasClass("grouping-pack") ? (c.removeClass("grouping-pack"), b.show()) : (c.addClass("grouping-pack"), b.hide());
+		});
+	}
+	contentSwitch();
+</script>
+</body>
+</html>

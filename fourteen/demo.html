@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>响应式(bootstrap)</title>
+	<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 自定义css样式 -->
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<!-- 顶部导航 -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="menu-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">杀毒软件博物馆</a>
+        </div>
+        <div class="navbar-collapse collapse" id="bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#ad-carousel">综述</a></li>
+                <li><a href="#summary-container">简述</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        特点 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#feature-tab" data-tab="tab-Trend">Trend Micro</a></li>
+                        <li><a href="#feature-tab" data-tab="tab-360">360杀毒</a></li>
+                        <li><a href="#feature-tab" data-tab="tab-kbsj">卡巴斯基</a></li>
+                        <li><a href="#feature-tab" data-tab="tab-BitDefender">BitDefender</a></li>
+                        <li><a href="#feature-tab" data-tab="tab-Avira">Avira(小红伞)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" data-toggle="modal" data-target="#about-modal">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 广告轮播 -->
+<div id="ad-carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#ad-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#ad-carousel" data-slide-to="1"></li>
+        <li data-target="#ad-carousel" data-slide-to="2"></li>
+        <li data-target="#ad-carousel" data-slide-to="3"></li>
+        <li data-target="#ad-carousel" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="img/trend.jpg" alt="1 slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Trend Micro</h1>
+                    <p>趋势科技(Trend Micro于1988年在美国加州成立，受到众多国际性大企业的青睐。</p>
+                    <p><a class="btn btn-lg btn-primary" href="#"
+                          role="button" >点我下载</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="img/product.png" alt="2 slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>360杀毒</h1>
+                    <p>360杀毒是亚洲首家入选微软全球官网推荐的安全软件，具备“自学习、自进化”能力。</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">点我下载</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="img/kbsjmain.jpg" alt="3 slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>卡巴斯基</h1>
+                    <p>卡巴斯基反病毒软件是世界上拥有最尖端科技的杀毒软件之一，全名“卡巴斯基实验室”。</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">点我下载</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="img/slide.jpg" alt="4 slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>BitDefender</h1>
+                    <p>来自罗马尼亚的比特梵德/BitDefender(简称BD)，成立于2001年，是SOFTWIN的子公司，总部位于布加勒斯特。</p>
+                    <p><a class="btn btn-lg btn-primary" href="#"  role="button">点我下载</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="img/large-background-2.jpg" alt="5 slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Avira(小红伞)</h1>
+                    <p>小红伞(Avira AntiVir)是由德国杀软鼻祖Avira 公司所开发的杀毒软件，是许多用户挑选杀毒软件的首选。</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">点我下载</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#ad-carousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#ad-carousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+<div class="container ">
+    <!-- 简介 -->
+    <div class="row" id="summary-container">
+        <div class="col-md-4">
+            <img  src="img/Trend Micro1.jpg" alt="chrome">
+            <h2>Trend Micro</h2>
+            <p>趋势科技(Trend Micro于1988年在美国加州成立，受到众多国际性大企业的青睐。</p>
+            <p><a class="btn btn-default" href="#" role="button">点我下载</a></p>
+        </div>
+        <div class="col-md-4">
+            <img  src="img/360.jpg" alt="firefox">
+            <h2>360杀毒</h1>
+            <p>360杀毒是亚洲首家入选微软全球官网推荐的安全软件，具备“自学习、自进化”能力。</p>
+            <p><a class="btn btn-default" href="#" role="button">点我下载</a></p>
+        </div>
+        <div class="col-md-4">
+            <img  src="img/social-kaspersky.png" alt="safari">
+            <h2>卡巴斯基</h2>
+            <p>卡巴斯基反病毒软件是世界上拥有最尖端科技的杀毒软件之一，全名“卡巴斯基实验室”。</p>
+            <p><a class="btn btn-default" href="#" role="button">点我下载</a></p>
+        </div>
+    </div>
+    <hr class="feature-divider">
+    <ul class="nav nav-tabs" role="tablist" id="feature-tab">
+        <li class="active">
+            <a href="#tab-Trend" role="tab" data-toggle="tab">Trend Micro</a>
+        </li>
+        <li>
+            <a href="#tab-360" role="tab" data-toggle="tab">360杀毒</a></li>
+        <li>
+            <a href="#tab-kbsj" role="tab" data-toggle="tab">卡巴斯基</a>
+        </li>
+        <li>
+            <a href="#tab-BitDefender" role="tab" data-toggle="tab">BitDefender </a>
+        </li>
+        <li>
+            <a href="#tab-Avira" role="tab" data-toggle="tab">Avira AntiVir(小红伞)</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab-Trend">
+            <div class="row feature">
+                <div class="col-md-7">
+                    <h2 class="feature-heading">
+                        Trend Micro 
+                        <span class="text-muted">国大企业青睐的杀毒软件</span>
+                    </h2>
+                    <p class="lead">趋势科技(Trend Micro)于1988年在美国加州成立，其总部设在日本东京。2002年，它推出了面向企业安全市场的EPS防护方案，采取主动性的预防措施，在病毒爆发初期就进行管理，最大限度保护用户安全，受到众多国际性大企业的青睐。</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src="img/Trend Micro.jpg" alt="Trend Micro">
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab-360">
+            <div class="row feature">
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src="img/360log.jpg" alt="360">
+                </div>
+                <div class="col-md-7">
+                    <h2 class="feature-heading">360杀毒 <span class="text-muted">你懂的</span>
+                    </h2>
+                    <p class="lead">360杀毒采用第三代QVM人工智能引擎技术，将人工智能技术应用于病毒识别过程中，具备“自学习、自进化”能力，无需频繁升级特征库，就能检测到90%以上的新病毒。同时配合“云查杀”技术和“白名单”机制，能够在识别未知恶意程序的同时，降低误报。360也是亚洲首家入选微软全球官网推荐的安全软件。</p>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab-kbsj">
+            <div class="row feature">
+                <div class="col-md-7">
+                    <h2 class="feature-heading">卡巴斯基<span class="text-muted">卡巴斯基实验室</span></h2>
+                    <p class="lead">卡巴斯基反病毒软件是世界上拥有最尖端科技的杀毒软件之一，总部设在俄罗斯首都莫斯科，全名“卡巴斯基实验室”，是国际著名的信息安全领导厂商，创始人为俄罗斯人尤金•卡巴斯基。公司为个人用户、企业网络提供反病毒、防黒客和反垃圾邮件产品。</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src="img/kbsj.jpg" alt="kbsj">
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab-BitDefender">
+            <div class="row feature">
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src="img/boxBS.png" alt="BitDefender">
+                </div>
+                <div class="col-md-7">
+                    <h2 class="feature-heading">
+                        BitDefender 
+                        <span class="text-muted">来自罗马尼亚的</span>
+                    </h2>
+                    <p class="lead">来自罗马尼亚的比特梵德/BitDefender(简称BD)，成立于2001年，是SOFTWIN的子公司，总部位于布加勒斯特。而母公司SOFTWIN公司成立于1990年，提供高端软件解决方案及相关服务，客户主要面向于大型银行业，国家服务部门，公共事业，物流及通信行业。</p>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab-Avira">
+            <div class="row feature">
+                <div class="col-md-7">
+                    <h2 class="feature-heading">
+                        Avira AntiVir 
+                        <span class="text-muted">杀毒软件首选</span>
+                    </h2>
+                    <p class="lead">小红伞(Avira AntiVir)是由德国杀软鼻祖Avira 公司所开发的杀毒软件。AntiVir 除了商业版本外，还有免费的个人用版本。用户超过七千万，它改写许多人“免费杀毒软件就一定比较差”的观念，在系统扫描、即时防护、自动更新等方面，表现都不输给知名的付费杀毒软件，甚至比部份商业杀毒软件还要高，因此成为许多用户挑选杀毒软件的首选。</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src="img/home-featured-image-3.png" alt="Avira AntiVir">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 关于 -->
+    <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+                    <h4 class="modal-title" id="modal-label">关于</h4>
+                </div>
+                <div class="modal-body">
+                    <p>本网页介绍了五款不同的杀毒软件：Trend Micro ，360杀毒，卡巴斯基，BitDefender ，Avira AntiVir 。并对他们的特点做了详细介绍。</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">了解了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p class="pull-right"><a href="#top">回到顶部</a></p>
+        <p>谢谢观看 </p>
+    </footer>
+</div>
+<!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="js/jquery-1.11.3.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script>
+    $(function () {
+        $('#ad-carousel').carousel();
+        $('#menu-nav .navbar-collapse a').click(function (e) {
+            var href = $(this).attr('href');
+            var tabId = $(this).attr('data-tab');
+            if ('#' !== href) {
+                e.preventDefault();
+                $(document).scrollTop($(href).offset().top - 50);
+                if (tabId) {
+                    $('#feature-tab a[href=#' + tabId + ']').tab('show');
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+
+
+
