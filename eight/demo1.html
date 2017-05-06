@@ -1,0 +1,122 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="utf-8">
+<title>鼠标移入标题提示大图展示</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+
+.hotel_pic {
+    width: 840px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+.hotel_pic li {
+    float: left;
+    padding: 0 10px 10px 0;
+}
+
+#imgPreview {
+    background:#95959d;
+    border: 1px solid #dadade;
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+    z-index: 999;
+    position:absolute;
+}
+
+
+</style>
+</head>
+<body>
+<div class="hotel_pic">
+    <ul>
+        <!--a标签的path是放大镜图片的地址-->
+        <li><a href="javascript:;" path="img/hotel_01.jpg" class="preview"><img src="img/hotel1.jpg" width="410" height="280" alt=""></a></li>
+        <li><a href="javascript:;" path="img/hotel_02.jpg" class="preview"><img src="img/hotel2.jpg" width="130" height="120" alt=""></a></li>
+        <li><a href="javascript:;" path="img/hotel_01.jpg" class="preview"><img src="img/hotel1.jpg" width="130" height="120" alt=""></a></li>
+        <li><a href="javascript:;" path="img/hotel_02.jpg" class="preview"><img src="img/hotel2.jpg" width="130" height="120" alt=""></a></li>
+        <li><a href="javascript:;" path="img/hotel_01.jpg" class="preview"><img src="img/hotel1.jpg" width="200" height="150" alt=""></a></li>
+        <li><a href="javascript:;" path="img/hotel_02.jpg" class="preview"><img src="img/hotel2.jpg" width="200" height="150" alt=""></a></li>
+    </ul>
+ </div>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+//标题提示大图展示
+this.preloadIm=function(){
+    var b=new Array;
+    $("a.preview").each(function(){
+        $(this).attr("path");
+    });
+    return b
+};
+this.imagePreview=function(d,c){
+    offX=25;
+    offY=25;
+    c=c==undefined?"a.preview":c;
+    $(c).hover(function(e){
+        $("body").append("<div id='imgPreview'><img id='pi'/></div>");
+        var m=$(this).attr("path");
+        $("#pi").attr("src",m);
+        var o=$("#imgPreview").width();
+        var p=$("#imgPreview").height();
+        var a=$(window).width()+$(window).scrollLeft();
+        var l=$(window).height()+$(window).scrollTop();
+        var n;
+        var b;
+        if((e.pageX+offX+o)>a){
+            n=e.pageX-(o+offX)+"px"
+        }else{
+            n=e.pageX+offX+"px"
+        }if((e.pageY+offY+p)>l){
+            b=l-(p+offY)+"px"
+        }else{
+            b=e.pageY+offY+"px"
+        }
+            $("#imgPreview").css("top",b).css("left",n).fadeIn("fast")
+        },function(){
+            $("#imgPreview").remove()
+    });
+    $(c).mousemove(function(e){
+        var m=$("#imgPreview").width();
+        var n=$("#imgPreview").height();
+        var a=$(window).width()+$(window).scrollLeft();
+        var k=$(window).height()+$(window).scrollTop();
+        var l;
+        var b;
+        if((e.pageX+offX+m)>a){
+            l=e.pageX-(m+offX)+"px"
+        }else{
+            l=e.pageX+offX+"px"
+        }if((e.pageY+offY+n)>k){
+            b=k-(n+offY)+"px"
+        }else{
+            b=e.pageY+offY+"px"
+        }
+        $("#imgPreview").css("top",b).css("left",l)
+    });
+
+};
+if ($('a.preview').length) {
+    var img = preloadIm();
+    imagePreview(img);
+}
+</script>
+</script>
+</body>
+</html>

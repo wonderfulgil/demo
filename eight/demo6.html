@@ -1,0 +1,141 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="utf-8">
+<title>鼠标移过，改变图片路径</title>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, form {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-size:14px;
+}
+li{
+	list-style: none outside none;
+}
+ a {
+	color:#000;
+	text-decoration:none;
+}
+
+.product_slidebox {
+    width: 550px;
+    height: 324px;
+    margin:40px auto;
+}
+
+.product_slidebox .carousel-main {  
+    float: left;
+    width: 80%;
+    height: 324px;
+}
+.product_slidebox .carousel-main img {
+    width: 432px;
+    height: 324px;
+}
+.product_slidebox .carousel-slide {
+    width: 18%;
+    float: right;
+    padding: 4px 0;
+    position: relative;
+    overflow: hidden;
+    height: 324px;
+}
+.icon_tag {
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url(img/icon-product.png);
+}
+.product_slidebox .carousel-slide .prev {
+    position: absolute;
+    top: 0;
+    left: 33%;
+    background-position: -833px -66px;
+    height: 22px;
+    width: 33px;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    z-index: 999;
+}
+.product_slidebox .carousel-slide .next {
+    position: absolute;
+    bottom: 0;
+    left: 33%;
+    background-position: 0 -164px;
+    height: 22px;
+    width: 33px;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    z-index: 999;
+}
+.product_slidebox .carousel-slide .carousel_pic {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+.product_slidebox .carousel-slide li {
+    border: 1px solid #fff;
+    cursor: pointer;
+    display: block;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    position: relative;
+    margin-bottom: 7px;
+}
+.product_slidebox .carousel-slide li img {
+    width: 95px;
+    height: 73px;
+    vertical-align: middle;
+}
+.product_slidebox .carousel-slide li.on {
+    border-color: #e5004f;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.carousel-slide .next:hover, .carousel-slide .prev:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+</style>
+</head>
+<body>
+<div class="product_slidebox">
+    <div class="carousel-main"></div>
+    <div class="carousel-slide">
+        <a href="javascript:;" class="icon_tag prev"></a>
+        <a href="javascript:;" class="icon_tag next"></a>
+        <ul class="carousel_pic">                                                       
+            <li  class="on"><a href="javascript:;"><img src="img/xianlu_00.png"></a></li>
+            <li><a href="javascript:;"><img src="img/xl_00.png"></a></li>
+            <li><a href="javascript:;"><img src="img/xl_04.png" ></a></li>
+            <li><a href="javascript:;"><img src="img/xl_05.png"></a></li>
+            <li><a href="javascript:;"><img src="img/600x450.png"></a></li>
+        </ul>
+    </div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    function picslide(){    
+        var a = $(".carousel-main").append("<img/>");   
+        var b =a.find("img");
+            c = $(".carousel-slide").find(".on").find("img").attr("src");
+            b.attr("src",c);
+            $(".carousel-slide").find("li").on("click",function() {
+                $(this).addClass("on")
+                       .siblings().removeClass("on");
+                var d=$(this).find("img").attr("src");
+                b.attr("src",d);                
+            }); 
+            $(".carousel-slide").find(".next").on("click",function() {  
+                $(".carousel-slide").find("li:first").appendTo($(".carousel_pic"));
+            }); 
+
+            $(".carousel-slide").find(".prev").on("click",function() {
+                $(".carousel-slide").find("li:last").prependTo($(".carousel_pic"));
+            });     
+    } 
+    picslide();
+</script>
+</body>
+</html>
