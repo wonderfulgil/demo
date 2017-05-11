@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>首页</title>
+	<style type="text/css">
+		#code{
+			color:blue;
+			background: #eee;
+			border:0;
+			font-weight:bold;
+			outline: none;
+			text-align: center;
+			display: inline-block;
+			width:100px;height:25px;
+			line-height: 25px;
+		}
+	</style>
+</head>
+<body>	
+	<input type="text" id="enterCode" placeholder="请输入验证码">
+	<input type="button" name="" value="点击生成验证码" id="code" onclick="createcode()">
+	<input type="button" name="" value="验证" onclick="verify()">
+<script type="text/javascript">
+	//验证码是数字和字母随机组合
+	var code;//存储验证码
+	var checkCode=document.getElementById("code");
+	var enterCode=document.getElementById("enterCode");
+	function createcode(){
+		var code='';
+		var codeLength=4;//验证码的长度
+		 var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H',
+            'I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+		 //math.random()  随机数[0,1)
+		 for(i=0;i<codeLength;i++){
+		 	var index=Math.floor(Math.random()*36);//随机数0-35
+		 	code+=random[index];
+		 	checkCode.value=code;
+		 }
+	}
+	function verify(){
+		var input_value=enterCode.value.toUpperCase();
+		if(input_value.length<=0){
+			alert('请输入验证码');
+		}else if(input_value!==checkCode.value){
+			alert('您输入的验证码错误');
+			createcode();
+			enterCode.value='';
+		}else{
+			alert("验证成功")
+		}
+
+	}
+
+</script>
+</body>
+</html>
+
+
