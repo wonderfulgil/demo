@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ajax百度下拉提示(跨域）</title>
+  <style>
+  ul{
+      margin: 0;
+    padding: 0;
+  }
+ input{
+     margin: 0;
+    padding: 0;
+    outline: none;
+    background: none;
+    border:none;
+  }
+  a{
+    text-decoration: none;
+    color:#333;
+  }
+  li{
+    list-style: none;
+  }
+  .wraper{
+    width:600px;
+    margin: 100px auto;
+  }
+  .search-box{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    float:left;
+  }
+  .search{
+    width: 300px;
+    height: 30px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    display: inline-block;
+  }
+  .search-button{
+    width: 100px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+    text-align: center;
+    background: #F44336;
+    color:#fff;
+    cursor: pointer;
+    float:left;
+  }
+  .list{
+    position: absolute;
+    left: 0;
+    top: 32px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top:0;
+    width: 310px;
+  }
+  .list li{
+    height:25px;
+    line-height: 25px;
+    padding: 0 5px;
+    width: 300px;
+    overflow: hidden;
+  }
+  .list li a{
+    display: inline-block;
+    width: 300px;
+  }
+  .list li:hover{
+    background: #c3bdbd;
+  }
+   .list li:hover a{
+    color:#fff;
+  }
+   
+  </style>
+</head>
+<body> 
+<div id="wraper" class="wraper"> 
+  <form action="#" method="post">
+    <div class="search-box">
+      <input type="text" name="" class="search" value="" maxlength="255" autocomplete="off">
+      <ul class="list"></ul>
+    </div>
+    <input type="buttton" name="" class="search-button" value="搜索">
+  </form>
+</div>
+<script type="text/javascript">
+window.onload = function() {
+  var search=document.querySelector(".search");
+  var searchButton=document.querySelector(".search-button");  
+  var list=document.querySelector(".list"); 
+  search.onkeyup=function(){
+    if ( this.value != '' ) {
+      var oscript=document.createElement("script");
+      oscript.src='https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+this.value+'&cb=calldata';
+      document.body.appendChild(oscript);
+    }else{
+      list.style.display = 'none';//不然会有边框显示
+    }
+  };
+  searchButton.onclick=function(){
+    window.location.href='http://www.baidu.com/s?wd='+search.value;
+  };
+}
+  function calldata(data){
+    var list=document.querySelector(".list"); 
+     var uli="";//每次调用都清空数据
+    if (data.s.length) {
+      list.style.display = 'block';
+      for(i=0;i<data.s.length;i++){
+        uli+='<li><a href="http://www.baidu.com/s?wd='+data.s[i]+'">'+data.s[i]+'</a></li>'
+      };
+      list.innerHTML=uli;
+    }else{
+      list.style.display = 'none';
+    }
+  }
+
+</script>
+   
+</body>
+</html>
+
