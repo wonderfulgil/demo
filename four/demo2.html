@@ -1,0 +1,82 @@
+
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="utf-8">
+<title>h5 canvas 太极</title>
+<style>
+body{
+    margin: 0;
+    padding: 0
+}
+
+.demo{
+    width:600px;
+    margin:100px auto;
+}
+</style>
+</head>
+<body>
+<div class="demo">
+<h2>canvas 画太极</h2>
+<!--默认情况下该矩形区域宽300像素，高150像素，但也可以自定义具体的大小。!-->
+<canvas id="myCanvas" width="400" height="400" style="border:1px solid; background:#E1E1FF;"></canvas> 
+</div>
+<script  type="text/javascript">
+
+//首先使用 id 来寻找 canvas 元素
+var point=document.getElementById("myCanvas");
+
+//绘图的环境,当前唯一的合法值是 "2d"
+var ctx=point.getContext('2d');
+//画左侧黑半圆
+ctx.beginPath();
+ctx.arc(200,200,150,Math.PI/2,1.5*Math.PI);
+ctx.fillStyle="#000";
+ctx.closePath();
+ctx.fill();
+
+//右侧白半圆
+ctx.beginPath();
+//context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+ctx.arc(200,200,150,1.5*Math.PI,Math.PI/2);//
+ctx.fillStyle="#fff";
+ctx.closePath();
+ctx.fill();
+
+
+//上部白半圆，x,y-1/2r，r/2s
+ctx.beginPath();
+//context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+ctx.arc(200,125,75,Math.PI/2,1.5*Math.PI);
+ctx.fillStyle="#fff";
+ctx.closePath();
+ctx.fill();
+
+//下部黑半圆，x,y+1/2r，r/2s
+ctx.beginPath();
+//context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+ctx.arc(200,275,75,1.5*Math.PI,Math.PI/2);
+ctx.fillStyle="#000";
+ctx.closePath();
+ctx.fill();
+
+//上部黑原点，
+ctx.beginPath();
+//context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+ctx.arc(200,125,6,0,2*Math.PI);
+ctx.fillStyle="#000";
+ctx.closePath();
+ctx.fill();
+
+//下部白原点，
+ctx.beginPath();
+//context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+ctx.arc(200,275,6,0,2*Math.PI);
+ctx.fillStyle="#fff";
+ctx.closePath();
+ctx.fill();
+</script>
+
+</body>
+</html>
