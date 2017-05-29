@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>文字逐行向上滚动代码</title>
+<style>
+body,div, ul, li{margin:0;padding:0;}
+ul,li{list-style:none;}
+.demo{
+	width:600px;
+	margin: 100px auto;
+}
+.scrollDiv {
+	border:1px solid #eee;
+    width: 325px;
+    line-height: 30px;
+    overflow: hidden;
+	margin: 100px;
+	padding:0 20px;
+}
+.scrollDiv li{
+	color:#ffa500;
+	height:30px;
+	overflow:hidden}
+.scrollDiv li a{color:#3d5760;margin-left:2px;}
+</style>
+</head>
+<body>
+<div class="demo">
+	<h1>无缝滚动-文字逐行向上滚动</h1>
+	<div class="scrollDiv" id="scrollDiv">
+		<ul>		   		
+			<li>3小时前评论了<a href="" target="_blank">(精品热销)海口出发5天4晚“浪漫蜈支洲看海”精选景点全景之旅(含4大必游景区)</a>
+		   	</li>
+		   <li> 56分钟前评论了<a href="" target="_blank">(精品热销)海口出发5天4晚“浪漫蜈支洲看海”精选景点全景之旅(含4大必游景区)</a>
+		   </li>
+		   <li>37分钟前发表了 <a href="">虫游三亚――世外桃源桃花岛</a>
+		   </li>
+		   <li>海南招商国际旅行社1小时前发表了<a href="">三亚——清水湾，让我重新感受这个海边城市</a>
+		   </li>
+		   <li>海南招商国际旅行社 2小时前发表了<a href="">椰晶珠带您HOLD住——呀诺达</a>
+		   </li>
+		   <li>18633***1小时前预订了<a href="">（精品热销）海口出发5天4晚“浪漫蜈支洲看海”精选景点全景之旅（含4大必游景区）(5天4晚)</a>
+		   </li>
+		  </ul>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	//1.设置定时器让整个文字列表每隔一段时间向上滚动一段距离，滚动距离刚好一条信息被遮住（也就是li的高度）
+	//2.然后把遮住的这条信息移到列表尾部（.appendTo()），同时让整个文字列表回到原始位置（marginTop:0）
+	$(function(){
+		var scrollDiv=$(".scrollDiv");		
+		var playul=scrollDiv.find("ul");
+		var	lineH=scrollDiv.find("li:first").height();
+			speed=3000;
+			delay=500;
+			timer=0;
+		
+		function AutoScroll(){
+			timer=setInterval(function (){
+				playul.animate({
+					marginTop:-lineH
+					},delay,function(){
+							$(this).css({marginTop:"0px"}).find("li:first").appendTo(this);
+					});
+			},speed);		
+		}
+		AutoScroll()
+		//当鼠标放上去的时候，滚动停止，鼠标离开的时候滚动开始，鼠标切换放上去和离开时间
+		scrollDiv.hover(function(){   
+			clearInterval(timer);  
+		},function(){   
+			AutoScroll();
+		})
+	});
+
+	/*js版
+	window.onload = function () {
+		//1.设置定时器
+		//2.定时器作用：然后把遮住的这条信息移到列表尾部（
+		//1)让整个文字列表每隔一段时间向上滚动一段距离，滚动距离刚好一条信息被遮住（也就是li的高度）
+		//2)延迟一段时间然后把遮住的这条信息移到列表尾部（.appendChild），
+		//同时让整个文字列表回到原始位置（.style.marginTop="0px"）
+		var scrollDiv=document.getElementById("scrollDiv");		
+		var playul=scrollDiv.getElementsByTagName("ul");
+		var playli=scrollDiv.getElementsByTagName("li");
+		var	lineH=playli[0].offsetHeight;
+			speed=5000;
+			delay=200;
+			timer=0;
+		
+		function Autoplay(){
+			timer=setInterval(function (){
+				playul[0].style.marginTop=-lineH+"px";
+				setTimeout(scrolldown(),delay);
+			},speed);		
+		}
+		 function scrolldown(){
+			playul[0].style.marginTop="0px";	
+			playul[0].appendChild(playli[0]);
+		}
+
+		function stopplay(){
+			clearInterval(timer);  
+		}
+		Autoplay();
+			
+		//当鼠标放上去的时候，滚动停止，鼠标离开的时候滚动开始，鼠标切换放上去和离开时间
+		scrollDiv.onmouseover=stopplay;
+		scrollDiv.onmouseout=Autoplay;
+	}
+	*/
+</script>
+
+
