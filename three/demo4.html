@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+         .demo{
+            width: 600px;
+            margin: 30px auto;
+            text-align: center;
+            
+        }
+        /*demo*/
+        .demo1{
+            position: relative;
+            width:100px;
+            height:100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin: 50px auto;
+            cursor: pointer;
+        }
+        .demo1 span{
+            display: inline-block;
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            border:1px solid #E91E63;
+        }
+        .demo1 i{
+            display: inline-block;
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            position: absolute;
+            top:0;
+            left:0;
+            opacity: 0;
+            border:1px solid #E91E63;
+            filter: alpha(opacity=0);
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+        .demo1:hover i{
+            -webkit-transform: scale(1.5);
+            -o-transform: scale(1.5);
+            -ms-transform: scale(1.5);
+            transform: scale(1.5);
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        /*demo2*/
+        .demo2{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin: 50px auto;
+            overflow: hidden;
+            cursor: pointer;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box
+        }
+        .demo2 .round{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border:1px solid #E91E63;
+            line-height: 100px;
+            text-align: center;
+            border-radius: 50%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box
+        }
+        .demo2 .biankuang{
+            display: inline-block;
+            width:0;
+            height:0;
+            position: absolute;
+            opacity: 0;
+            border:1px solid #E91E63;
+            filter: alpha(opacity=0);
+            -webkit-transition: all .8s linear;
+            -o-transition: all .8s linear;
+            -ms-transition: all .8s linear;
+            transition: all .8s linear;
+        }
+        .demo2 .biankuang1{
+            border-radius: 50px 0 0;
+            border-right: none;
+            border-bottom: none;
+            left: -51px;
+            top: 0;
+        }
+       
+        .demo2 .biankuang2{
+            border-radius: 0 100% 0 0;
+            border-left: none;
+            border-bottom: none;
+            right: -51px;
+            top: 0;  
+        }
+         .demo2 .biankuang3{
+           border-radius: 0 0 0 50px;
+            border-right: none;
+            border-top: none;
+            left: 0;
+            bottom: -51px;
+        }
+        .demo2 .biankuang4{
+            border-radius: 0 0 50px 0;
+            border-left: none;
+            border-top: none;
+            right: -0;
+            bottom: -51px;
+        }
+
+        .demo2:hover .biankuang{
+            opacity: 1;
+            filter: alpha(opacity=100);
+            width:50px;
+            height:50px;
+        }
+        .demo2:hover .biankuang1{
+            transform: translateX(51px) rotate(-360deg);
+        }
+        .demo2:hover .biankuang2{
+            transform: translateX(-51px) rotate(360deg);
+        }
+        .demo2:hover .biankuang3{
+            transform: translateY(-51px) rotate(360deg);
+        }
+        .demo2:hover .biankuang4{
+            transform: translateY(-51px) rotate(-360deg);
+        }
+        /*demo3*/
+        .demo3{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin: 50px auto;
+            cursor: pointer;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box
+        }
+        .demo3 .round{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border:1px solid #E91E63;
+            line-height: 100px;
+            text-align: center;
+            border-radius: 50%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box
+        }
+        .demo3 .biankuang{
+            display: inline-block;
+            position: absolute;
+            opacity: 0;
+            border:1px solid #E91E63;
+            filter: alpha(opacity=0);
+            -webkit-transition: all .8s linear;
+            -o-transition: all .8s linear;
+            -ms-transition: all .8s linear;
+            transition: all .8s linear;
+        }
+        .demo3 .biankuang1{
+            border-radius: 100% 0 0;
+            border-right: none;
+            border-bottom: none;
+            left: -1px;
+            top: 0;
+            width: 0;
+            height: 51px;
+        }
+       
+        .demo3 .biankuang2{
+            border-radius: 0 100% 0 0;
+            border-left: none;
+            border-bottom: none;
+            top: 0;
+            right: -1px;
+            width: 50px;
+            height: 0; 
+        }
+         .demo3 .biankuang3{
+            border-radius: 0 0 0 100%;
+            border-right: none;
+            border-top: none;
+            right: 50px;
+            bottom: -1px;
+            height: 0px;
+            width: 50px;
+        }
+        .demo3 .biankuang4{
+            border-radius: 0 0 100% 0;
+            border-left: none;
+            border-top: none;
+            right: -1px;
+            top: 50px;
+            height: 50px;
+            width: 0;
+        }
+
+        .demo3:hover .biankuang{
+            opacity: 1;
+            filter: alpha(opacity=100);
+            width:50px;
+            height:50px;
+        }
+        .demo3:hover .biankuang1{
+            width: 50px;
+        }
+        .demo3:hover .biankuang2{
+            height: 50px;
+        }
+        .demo3:hover .biankuang3{
+            width: 50px;
+        }
+        .demo3:hover .biankuang4{
+            height: 50px;
+        }
+        /*demo4*/
+        .demo4{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin: 50px auto;
+            overflow: hidden;
+            cursor: pointer;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box
+        }
+        .demo4 .round{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border:1px solid #E91E63;
+            line-height: 100px;
+            text-align: center;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box
+        }
+        .demo4 .biankuang{
+            display: inline-block;
+            width:0;
+            height:0;
+            position: absolute;
+            opacity: 0;
+            border:1px solid #E91E63;
+            filter: alpha(opacity=0);
+            -webkit-transition: all .8s linear;
+            -o-transition: all .8s linear;
+            -ms-transition: all .8s linear;
+            transition: all .8s linear;
+        }
+        .demo4 .biankuang1{
+            left: -51px;
+            top: -1px;
+        }
+       
+        .demo4 .biankuang2{
+            right: -1px;
+            top: -51px; 
+        }
+         .demo4 .biankuang3{
+            right: -51px;
+            bottom: -1px;
+        }
+        .demo4 .biankuang4{
+            left: -1px;
+            bottom: -51px;
+        }
+
+        .demo4:hover .biankuang{
+            opacity: 1;
+            filter: alpha(opacity=100);
+            
+        }
+        .demo4:hover .biankuang1{
+            width:100px;
+            height:1px;
+            transform: translateX(51px) ;
+        }
+        .demo4:hover .biankuang2{
+            transform: translateY(51px);
+            width: 1px;
+            height: 100px;
+        }
+        .demo4:hover .biankuang3{
+            width:100px;
+            height:1px;
+            transform: translateX(-51px);
+        }
+        .demo4:hover .biankuang4{
+            width: 1px;
+            height: 100px;
+            transform: translateY(-51px);
+        }
+    </style>   
+</head>
+<body>
+    <div class="demo">
+        <h2>圆形线条动画1</h2>
+        <div class="demo1">
+            <span>hover这里</span>
+            <i></i>
+        </div>
+        <h2>圆形线条动画2</h2>
+        <div class="demo2">  
+            <span class="round"> hover这里</span>  
+            <span class="biankuang biankuang1"></span>
+            <span class="biankuang biankuang2"></span>
+            <span class="biankuang biankuang3"></span>
+            <span class="biankuang biankuang4"></span>
+        </div>
+         <h2>圆形线条动画3</h2>
+        <div class="demo3">  
+            <span class="round"> hover这里</span>  
+            <span class="biankuang biankuang1"></span>
+            <span class="biankuang biankuang2"></span>
+            <span class="biankuang biankuang3"></span>
+            <span class="biankuang biankuang4"></span>
+        </div>
+         <h2>线型线条动画1</h2>
+        <div class="demo4">  
+            <span class="round"> hover这里</span>  
+            <span class="biankuang biankuang1"></span>
+            <span class="biankuang biankuang2"></span>
+            <span class="biankuang biankuang3"></span>
+            <span class="biankuang biankuang4"></span>
+    </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
