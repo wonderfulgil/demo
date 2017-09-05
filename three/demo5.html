@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="css/jquery.fullPage.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.8/jquery.fullPage.js"></script>
+<style>
+	 .slide{text-align: center;}
+		#fp-nav ul li, .fp-slidesNav ul li {
+		    width: 90px;
+		    height: 21px;
+		    margin: 10px 0 0;
+		    vertical-align: middle;
+		}
+		#fp-nav ul li a, .fp-slidesNav ul li a {
+		    float: right;
+		    width: 21px;
+		    height: 21px;
+		    color: #8F9DA4;
+		    text-align: right;
+		}
+		#fp-nav ul li a span, .fp-slidesNav ul li a span{
+			height: 12px;
+	    	width: 12px;
+		    border:2px solid #fff;
+		    background: rgba(0, 0, 0, 0);
+		}
+		#fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span{
+		    width: 12px;
+		    height: 12px;
+		  	margin: -2px 0 0 -2px;
+		}
+		#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span{
+			 margin: -2px 0 0 -2px;
+			 background: #fff;
+		}
+		#fp-nav ul li .fp-tooltip.right{
+		    float: left;
+		    top: 5px;
+		    margin-right: 5px;
+		    font: 12px "Microsoft Yahei";
+		    line-height: 21px;
+		}
+		/*水平导航*/
+		.fp-slidesNav ul li {
+				   width: 14px;
+				    height: 21px;
+				    margin-left: 10px;
+				    vertical-align: middle;
+		}
+
+		/*动画*/
+		.section .bg {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    width: 100%;
+		    height: 100%;
+		}
+		.section .bg img {
+		    display: block;
+		    width: 100%;
+		    height: 100%;
+		}
+		.section strong {
+		    position: absolute;
+		    left: 50%;
+		    top: 15%;
+		    z-index: 10;
+		    width: 512px;
+		    height: 45px;
+		    margin-left: -256px;
+		    font-size: 24px;
+		    font-weight: 500;
+		    color: #748A9E;
+		    opacity: 0;
+		    -webkit-transform: scale(0.5, 0.5);
+		    transform: scale(0.5, 0.5);
+		    transition: all 1s;
+		}
+		.section h3 {
+		    position: absolute;
+		    left: 50%;
+		    top: 15%;
+		    z-index: 10;
+		    width: 512px;
+		    height: 45px;
+		    margin-left: -256px;
+		    margin-top: 60px;
+		    background: url(img/t3.png) no-repeat;
+		    opacity: 0;
+		    -webkit-transform: scale(0.5, 0.5);
+		    transform: scale(0.5, 0.5);
+		    transition: all 1s;
+		}
+		.section .fp-tableCell h3 {
+		    
+		}
+		.active strong, .active h3 {
+		    opacity: 1;
+		    -webkit-transform: scale(1, 1);
+		    transform: scale(1, 1);
+		    transition-delay: 0.7s;
+		}
+		.p3 {
+	    position: absolute;
+	    width: 430px;
+	    left: 50%;
+	    top: 15%;
+	    margin-top: 250px;
+	    margin-left: -100%;
+	    font-size: 16px;
+	    color: #FFFDE1;
+	    opacity: 0;
+	    transition: all 1s;
+		}
+		.active .p3 {
+		    margin-left: -480px;
+		    opacity: 1;
+		    transition-delay: 0.7s;
+		}
+		.bg31 {
+		    position: absolute;
+		    left: 50%;
+		    bottom: 0;
+		    width: 892px;
+		    height: 472px;
+		    margin-left: -396px;
+		    margin-bottom: 80px;
+		    background-image: url(img/bg31.png);
+		    opacity: 0;
+		    transition: all 1s;
+		}
+		.active .bg31, .active .bg32 {
+		    opacity: 1;
+		    transition-delay: 1s;
+		}
+		.bg32 {
+		    position: absolute;
+		    left: 50%;
+		    bottom: 0;
+		    width: 892px;
+		    height: 472px;
+		    margin-left: -396px;
+		    background: url(img/bg32.png) 470px bottom no-repeat;
+		    opacity: 0;
+		    transition: all 1s;
+		}
+
+    
+		.bg33 {
+		    position: absolute;
+		    left: 50%;
+		    bottom: 0;
+		    width: 441px;
+		    height: 380px;
+		    margin-left: 50%;
+		    background: url(img/bg33.png) 0 0 no-repeat;
+		    opacity: 0;
+		    transition: all 1s;
+		}
+		.active .bg33 {
+		    margin-left: -120px;
+		    opacity: 1;
+		    transition-delay: 0.7s;
+		}
+
+</style>
+</head>
+<body>
+<div id="fullpage">
+	<div class="section">
+		<div class="bg"><img src="img/section3.jpg" alt=""></div>
+		<div class="bg31"></div>
+		<div class="bg32"></div>
+		<div class="bg33"></div>
+		<strong>[ 视觉化交互设计 ]</strong>
+		<h3></h3>
+		<p class="p3">邮箱 6.0 版采用了全新的视觉化交互设计，通过对界面的整体风格设计、重要信息的视觉化处理以及元素本身的视觉传达优化，来实现产品流程设计和交互行为塑造。从视觉的角度出发，让用户无需多想，直接通过感官与产品进行交互。</p>
+	</div>
+	<div class="section">
+		<div class="bg"><img src="img/section3.jpg" alt=""></div>
+		<div class="bg31"></div>
+		<div class="bg32"></div>
+		<div class="bg33"></div>
+		<strong>[ 视觉化交互设计 ]</strong>
+		<h3></h3>
+		<p class="p3">邮箱 6.0 版采用了全新的视觉化交互设计，通过对界面的整体风格设计、重要信息的视觉化处理以及元素本身的视觉传达优化，来实现产品流程设计和交互行为塑造。从视觉的角度出发，让用户无需多想，直接通过感官与产品进行交互。</p>
+	</div>
+	<div class="section">
+		<div class="bg"><img src="img/section3.jpg" alt=""></div>
+		<div class="bg31"></div>
+		<div class="bg32"></div>
+		<div class="bg33"></div>
+		<strong>[ 视觉化交互设计 ]</strong>
+		<h3></h3>
+		<p class="p3">邮箱 6.0 版采用了全新的视觉化交互设计，通过对界面的整体风格设计、重要信息的视觉化处理以及元素本身的视觉传达优化，来实现产品流程设计和交互行为塑造。从视觉的角度出发，让用户无需多想，直接通过感官与产品进行交互。</p>
+	</div>
+	<div class="section">
+		<div class="bg"><img src="img/section3.jpg" alt=""></div>
+		<div class="bg31"></div>
+		<div class="bg32"></div>
+		<div class="bg33"></div>
+		<strong>[ 视觉化交互设计 ]</strong>
+		<h3></h3>
+		<p class="p3">邮箱 6.0 版采用了全新的视觉化交互设计，通过对界面的整体风格设计、重要信息的视觉化处理以及元素本身的视觉传达优化，来实现产品流程设计和交互行为塑造。从视觉的角度出发，让用户无需多想，直接通过感官与产品进行交互。</p>
+	</div>
+	<div class="section">
+		<div class="bg"><img src="img/section3.jpg" alt=""></div>
+		<div class="bg31"></div>
+		<div class="bg32"></div>
+		<div class="bg33"></div>
+		<strong>[ 视觉化交互设计 ]</strong>
+		<h3></h3>
+		<p class="p3">邮箱 6.0 版采用了全新的视觉化交互设计，通过对界面的整体风格设计、重要信息的视觉化处理以及元素本身的视觉传达优化，来实现产品流程设计和交互行为塑造。从视觉的角度出发，让用户无需多想，直接通过感官与产品进行交互。</p>
+	</div>
+	<div class="section">
+		<div class="bg"><img src="img/section3.jpg" alt=""></div>
+		<div class="bg31"></div>
+		<div class="bg32"></div>
+		<div class="bg33"></div>
+		<strong>[ 视觉化交互设计 ]</strong>
+		<h3></h3>
+		<p class="p3">邮箱 6.0 版采用了全新的视觉化交互设计，通过对界面的整体风格设计、重要信息的视觉化处理以及元素本身的视觉传达优化，来实现产品流程设计和交互行为塑造。从视觉的角度出发，让用户无需多想，直接通过感官与产品进行交互。</p>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#fullpage").fullpage({
+			navigation: true,
+			navigationTooltips: ['首页', '视觉', '交互', '皮肤', '功能', '待办邮件'],
+			navigationPosition:"right" ,
+			autoScrolling:"false",
+			showActiveTooltip:"true",
+			anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+		});
+	});
+</script> 
+</body>
+</html>
