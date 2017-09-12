@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#container{
+		width:100%;
+		height:400px;
+	}
+	#zoomin{position:absolute;left:10px;bottom:100px;width:50px;height:30px;color:#fff;background: #a3ccff;text-align:center;border-radius: 10px;cursor: pointer; z-index: 100;}
+	#zoomout{position:absolute;left:10px;bottom:60px;width:50px;height:30px;color:#fff;background: #a3ccff;text-align:center;border-radius: 10px;cursor: pointer; z-index: 100;}
+	</style>
+</head>
+<body>
+	<h1>高德地图</h1>
+	<div id="container">
+		<div id="zoomin">放大</div>
+		<div id="zoomout">缩小</div>
+	</div>
+	<script type="text/javascript" src = 'http://webapi.amap.com/maps?v=1.4.0&key=e4a3bc9bc599c1291168d6bf9907ed93'></script>
+	<script >
+		//创建地图
+		var map=new AMap.Map('container',{
+			pitch:75,//地图的初始俯仰角度
+    		viewMode:'3D',//添加3d
+    		expandZoomRange:true,
+			zoom:10,
+			center: [116.39,39.9]
+		});
+		//设置城市
+		map.setCity("合肥");
+		//设置标志物
+		var marker = new AMap.Marker({
+		position: [116.480983, 39.989628],//marker所在的位置
+		    map:map//创建时直接赋予map属性
+		});
+		//也可以在创建完成后通过setMap方法执行地图对象
+		marker.setMap(map);
+		//点击放大缩小地图
+		var zoomin=document.getElementById("zoomin")
+		var zoomout=document.getElementById("zoomout")
+		zoomin.onclick=function(){
+			map.zoomIn( );//地图放大一级显示
+		}
+		zoomout.onclick=function(){
+			map.zoomOut( );//地图缩小一级显示
+		}
+		//增加工具条
+		map.plugin(["AMap.ToolBar"], function() {
+			var toolbar=new AMap.ToolBar();
+            map.addControl(toolbar);
+        });
+        //增加地图比例尺
+        map.plugin(["AMap.Scale"], function() {
+			var Scale=new AMap.Scale();
+            map.addControl(Scale);
+        });
+        //增加地图类型切换
+        map.plugin(["AMap.MapType"], function() {
+			var MapType=new AMap.MapType();
+            map.addControl(MapType);
+        });
+       //鹰眼
+       map.plugin(["AMap.OverView"],function(){
+       		var view=new AMap.OverView({isOpen:true});
+            map.addControl(view);
+       })
+	</script>
+</body>
+</html>
